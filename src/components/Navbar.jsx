@@ -5,7 +5,7 @@ import s from "./Navbar.module.css";
 const Navbar = () => {
   return (
     <nav className={s.nav}>
-      <div className={s.menuLink}>
+      <div className={`${s.menuLink} ${s.textType}`}>
         <a>Profile</a>
       </div>
       <div className={s.menuLink}>
