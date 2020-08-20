@@ -1,0 +1,11 @@
+.app-wrapper {
+  margin: 0 auto;
+  display: grid;
+  width: 1200px;
+  grid-template-areas: "h h" "n c"; /*кавычки - одна строка h - header займет две колонки*/
+  grid-template-rows: 80px 1fr;
+  /*80px - height 1fr - one fraction*/
+  grid-template-columns: 2fr 10fr;
+  /*одна колонка занимает 2 фракции, вторая десять*/
+
+}

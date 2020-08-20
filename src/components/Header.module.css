@@ -1,0 +1,10 @@
+.header {
+  grid-area: h;
+  /*grid-area это псевдонимы для grid template areas */
+  background-color: #383a45;
+  padding: 20px 20px 20px 20px;
+}
+
+.header img {
+  width: 40px;
+}
