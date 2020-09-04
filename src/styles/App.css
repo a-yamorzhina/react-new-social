@@ -9,3 +9,8 @@
   /*одна колонка занимает 2 фракции, вторая десять*/
 
 }
+
+.app-wrapper-content {
+  grid-area: c;
+  background-color: cornflowerblue;
+}

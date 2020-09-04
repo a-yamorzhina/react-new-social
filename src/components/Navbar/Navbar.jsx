@@ -6,10 +6,10 @@ const Navbar = () => {
   return (
     <nav className={s.nav}>
       <div className={`${s.menuLink} ${s.textType}`}>
-        <a>Profile</a>
+        <a href='/profile'>Profile</a>
       </div>
       <div className={s.menuLink}>
-        <a>Messages</a>
+        <a href='/dialogs'>Messages</a>
       </div>
       <div className={s.menuLink}>
         <a>News</a>
