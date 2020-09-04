@@ -9,6 +9,9 @@ module.exports = {
     path: path.join(__dirname, "/dist"),
     filename: "index-bundle.js"
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
