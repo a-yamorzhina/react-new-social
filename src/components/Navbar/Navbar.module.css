@@ -1,6 +1,7 @@
 .nav {
   grid-area: n;
   background-color: #F6F7F9;
+  padding: 20px;
 }
 
 .menuLink {
@@ -12,4 +13,18 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 26px;
+  text-decoration: none;
 }
+
+.textType:hover {
+  color: #8224e3;
+}
+
+.active {
+  color: #8224e3;
+}
+
+
+
+
+
