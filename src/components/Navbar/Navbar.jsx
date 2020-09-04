@@ -12,13 +12,13 @@ const Navbar = () => {
         <a href='/dialogs'>Messages</a>
       </div>
       <div className={s.menuLink}>
-        <a>News</a>
+        <a href='/news'>News</a>
       </div>
       <div className={s.menuLink}>
-        <a>Music</a>
+        <a href='/music'>Music</a>
       </div>
       <div className={s.menuLink}>
-        <a>Settings</a>
+        <a href='/settings'>Settings</a>
       </div>
     </nav>
   )
