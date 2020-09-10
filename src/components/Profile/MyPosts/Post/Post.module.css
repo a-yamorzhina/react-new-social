@@ -1,3 +1,26 @@
+.post {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e7edf2;
+}
+
+
 .post img {
-  width: 50px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.postStyle {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #626c72;
+}
+
+.likeStyle {
+  display: block;
+  margin-bottom: 20px;
+  color: #626c72;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 26px;
 }

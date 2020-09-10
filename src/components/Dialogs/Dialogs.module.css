@@ -1,1 +1,40 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+}
+
+.dialogItems {
+  padding: 20px;
+}
+
+.dialogItems .active {
+  color: #8224e3;
+}
+
+.dialog {
+
+}
+
+.messages {
+  padding: 20px;
+}
+
+.message {
+
+}
+
+.textType {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+  text-decoration: none;
+}
+
+.textType:visited {
+  color: #838daa;
+}
+
+.textType:hover {
+  color: #8224e3;
+}
 
