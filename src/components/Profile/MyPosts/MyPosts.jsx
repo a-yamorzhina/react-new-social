@@ -3,14 +3,10 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 
-const MyPosts = () => {
+const MyPosts = (props) => {
 
-  let postMessages = [
-    {id: 1, message: "hi, how are you?", count: "5"},
-    {id: 2, message: "it's my first post. LOL", count: "6"},
-  ];
 
-  let postsMas = postMessages.map (
+  let postsMas = props.postMessages.map (
     p =>  <Post message={p.message} count={p.count}/>
   );
 
