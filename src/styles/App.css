@@ -7,10 +7,11 @@
   /*80px - height 1fr - one fraction*/
   grid-template-columns: 2fr 10fr;
   /*одна колонка занимает 2 фракции, вторая десять*/
-
+  font-family: "Nunito Sans", Arial, sans-serif;
 }
 
 .app-wrapper-content {
   grid-area: c;
-  background-color: cornflowerblue;
+  background-color: white;
+  border: 1px solid #e7edf2;
 }

@@ -1,2 +1,59 @@
+.postsBlock {
+  padding: 20px;
+}
+
+.posts {
+  margin-top: 20px;
+}
+
+.mainButton {
+  background-color: #8224e3;
+  background-image: linear-gradient(90deg, #8224e3 0, #a968ec 50%, #8224e3 100%);
+  box-shadow: 0 1px 2px 0 rgba(130, 36, 227, 0.5);
+  color: #fff;
+  background-size: 200%;
+  display: inline-block;
+  padding: .375rem 2rem;
+  padding-top: calc(.375rem + 1px);
+  padding-bottom: calc(.375rem + 1px);
+  border: none;
+  min-height: 2.5rem;
+  border-radius: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.mainButton:hover {
+  background-position: right center;
+  transition: all 750ms ease;
+}
+
+.mainButton:active {
+  outline: none;
+}
+
+.mainButton:focus {
+  outline: none;
+}
+
+.firstWrap {
+  padding: 0;
+  margin: 0 0 20px 0;
+  border-bottom: 1px solid #e7edf2;
+  overflow: hidden;
+  white-space: nowrap;
+
+}
+
+.secondWrap {
+  border-bottom: 2px solid #8224e3;
+  width: 90px;
+  padding: 0 .75rem .5rem;
+  display: block;
+}
+
+.h3 {
+  color: #8224e3;
+}
 
 
