@@ -4,9 +4,19 @@
   padding: 20px;
 }
 
+.navPosition {
+  display: flex;
+  flex-direction: column;
+}
+
 .menuLink {
   color: #838daa;
 }
+
+.menuLink:nth-child(6) {
+  margin-top: 40px;
+}
+
 
 .textType {
   font-family: "Nunito Sans", Arial, sans-serif;
@@ -26,6 +36,15 @@
   color: #8224e3;
 }
 
+
+.friendsPosition {
+  border-top: 1px solid #e7edf2;
+  margin-top: 10px;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
 
 
