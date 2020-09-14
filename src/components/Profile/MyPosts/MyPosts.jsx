@@ -10,6 +10,14 @@ const MyPosts = (props) => {
     p => <Post message={p.message} count={p.count}/>
   );
 
+  let newPostElement = React.createRef();
+
+  let addPost = () => {
+    let text = newPostElement.current.value;
+    alert(text);
+  };
+
+
   return (
     <div className={s.postsBlock}>
       <div className={s.firstWrap}>
@@ -18,7 +26,11 @@ const MyPosts = (props) => {
         </div>
       </div>
 
-      <button className={s.mainButton}>New post</button>
+      <div>
+      <textarea className={s.textareaStyle} ref={newPostElement}> </textarea>
+      <button className={s.mainButton} onClick={addPost}>New post</button>
+      </div>
+
       <div className={s.posts}>
         {postsMas}
       </div>

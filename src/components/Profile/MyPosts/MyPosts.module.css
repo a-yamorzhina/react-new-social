@@ -3,7 +3,7 @@
 }
 
 .posts {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .mainButton {
@@ -55,5 +55,24 @@
 .h3 {
   color: #8224e3;
 }
+
+.textareaStyle {
+  width: 93%;
+  resize: vertical;
+  cursor: text;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  font: 400 13.3333px Arial;
+  color: #626c72;
+  background: #fff;
+  display: block;
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding: 2.5rem 2rem;
+  border-color: #e7edf2;
+  border-radius: 12px;
+  box-shadow: 0 20px 90px rgba(58,46,68,0.05);
+}
+
 
 
