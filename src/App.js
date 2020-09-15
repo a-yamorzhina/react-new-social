@@ -14,7 +14,9 @@ import s from "./components/Navbar/Navbar.module.css";
 
 const App = (props) => {
 
-  let DialogsRoute = () => <Dialogs state={props.state.dialogsPage}/>;
+  let DialogsRoute = () => <Dialogs state = {props.state.dialogsPage}
+                                    addMessage={props.addMessage}
+                                    updateNewMessageText={props.updateNewMessageText}/>;
 
   return (
     <BrowserRouter>
@@ -27,7 +29,9 @@ const App = (props) => {
             <Redirect to='/profile'/>
           </Route>
           <Route path='/dialogs' render={DialogsRoute}/>
-          <Route path='/profile' render={() => <Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
+          <Route path='/profile' render={() => <Profile state={props.state.profilePage}
+                                                        addPost={props.addPost}
+                                                        updateNewPostText={props.updateNewPostText}/>}/>
           <Route path='/news' render={() => <News/>}/>
           <Route path='/music' render={() => <Music/>}/>
           <Route path='/settings' render={() => <Settings/>}/>

@@ -1,14 +1,43 @@
 import {rerenderEntireTree} from "../render";
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
+
+
 
   let newPost = {
     id: 3,
-    message: postMessage,
+    message: state.profilePage.newPostText,
     count: 0
   };
 
   state.profilePage.postMessages.push(newPost);
+  state.profilePage.newPostText = '';
+  rerenderEntireTree(state);
+
+};
+
+export let updateNewPostText = (newText) => {
+
+  state.profilePage.newPostText = newText;
+  rerenderEntireTree(state);
+
+};
+
+export let addMessage = () => {
+
+  let newMessage = {
+    id: 8,
+    message: state.dialogsPage.newMessageText,
+  };
+
+  state.dialogsPage.messages.push(newMessage);
+  state.dialogsPage.newMessageText = '';
+  rerenderEntireTree(state);
+
+};
+
+export let updateNewMessageText = (newText) => {
+  state.dialogsPage.newMessageText = newText;
   rerenderEntireTree(state);
 };
 
@@ -52,7 +81,8 @@ let state = {
     postMessages: [
       {id: 1, message: "hi, how are you?", count: "5"},
       {id: 2, message: "it's my first post. LOL", count: "6"},
-    ]
+    ],
+    newPostText: '',
   },
 
   dialogsPage: {
@@ -76,7 +106,8 @@ let state = {
       {id: 1, message: "Hi"},
       {id: 2, message: "How are you?"},
       {id: 3, message: "Okay, okay"},
-    ]
+    ],
+    newMessageText: '',
   },
 
 };
