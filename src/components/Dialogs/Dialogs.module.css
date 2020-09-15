@@ -109,6 +109,7 @@
 .mainButton:hover {
   background-position: right center;
   transition: all 750ms ease;
+  cursor: pointer;
 }
 
 .mainButton:active {

@@ -20,12 +20,13 @@
   min-height: 2.5rem;
   border-radius: 30px;
   text-align: center;
-  cursor: pointer;
+
 }
 
 .mainButton:hover {
   background-position: right center;
   transition: all 750ms ease;
+  cursor: pointer;
 }
 
 .mainButton:active {
