@@ -5,7 +5,7 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
 
-  console.log(props);
+  // console.log(props);
 
   let postsMas = props.postMessages.map(
     p => <Post message={p.message} count={p.count}/>
