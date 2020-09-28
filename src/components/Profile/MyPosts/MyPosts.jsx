@@ -5,6 +5,7 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
 
+  console.log(props);
 
   let postsMas = props.postMessages.map(
     p => <Post message={p.message} count={p.count}/>
@@ -31,8 +32,8 @@ const MyPosts = (props) => {
       </div>
 
       <div>
-      <textarea className={s.textareaStyle} ref={newPostElement} value={props.newPostText} onChange={onPostChange}/>
-      <button className={s.mainButton} onClick={addPost}>New post</button>
+        <textarea className={s.textareaStyle} ref={newPostElement} value={props.newPostText} onChange={onPostChange}/>
+        <button className={s.mainButton} onClick={addPost}>New post</button>
       </div>
 
       <div className={s.posts}>

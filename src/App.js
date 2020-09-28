@@ -14,15 +14,18 @@ import s from "./components/Navbar/Navbar.module.css";
 
 const App = (props) => {
 
+
   let DialogsRoute = () => <Dialogs state = {props.state.dialogsPage}
-                                    addMessage={props.addMessage}
-                                    updateNewMessageText={props.updateNewMessageText}/>;
+                                    addMessage={props.store.addMessage}
+                                    updateNewMessageText={props.store.updateNewMessageText}/>;
 
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header/>
+
         <Navbar state={props.state.sidebar}/>
+
         <div className="app-wrapper-content">
 
           <Route exact path='/'>
@@ -30,8 +33,8 @@ const App = (props) => {
           </Route>
           <Route path='/dialogs' render={DialogsRoute}/>
           <Route path='/profile' render={() => <Profile state={props.state.profilePage}
-                                                        addPost={props.addPost}
-                                                        updateNewPostText={props.updateNewPostText}/>}/>
+                                                        addPost={props.store.addPost}
+                                                        updateNewPostText={props.store.updateNewPostText}/>}/>
           <Route path='/news' render={() => <News/>}/>
           <Route path='/music' render={() => <Music/>}/>
           <Route path='/settings' render={() => <Settings/>}/>
