@@ -1,6 +1,6 @@
 let store = {
 
-  rerenderEntireTree() {
+  _callSubscriber() {
 
   },
 
@@ -8,22 +8,23 @@ let store = {
 
       let newPost = {
         id: 3,
-        message: store.getState().profilePage.newPostText,
+        message: this._state.profilePage.newPostText,
         count: 0
       };
 
 
 
-    store.getState().profilePage.postMessages.push(newPost);
-    store.getState().profilePage.newPostText = '';
-    store.rerenderEntireTree(store.getState());
+    this._state.profilePage.postMessages.push(newPost);
+    this._state.profilePage.newPostText = '';
+    this._callSubscriber(this._state);
 
   },
 
   updateNewPostText(newText) {
 
-    store.getState().profilePage.newPostText = newText;
-    store.rerenderEntireTree(store.getState());
+    this._state.profilePage.newPostText = newText;
+    this._callSubscriber(this._state);
+
 
   },
 
@@ -31,26 +32,26 @@ let store = {
 
     let newMessage = {
       id: 8,
-      message: store.getState().dialogsPage.newMessageText,
+      message: this._state.dialogsPage.newMessageText,
     };
 
-    store.getState().dialogsPage.messages.push(newMessage);
-    store.getState().dialogsPage.newMessageText = '';
-    store.rerenderEntireTree(store.getState());
+    this._state.dialogsPage.messages.push(newMessage);
+    this._state.dialogsPage.newMessageText = '';
+    this._callSubscriber(this._state);
 
   },
 
   updateNewMessageText(newText) {
-    store.getState().dialogsPage.newMessageText = newText;
-    store.rerenderEntireTree(store.getState());
+    this._state.dialogsPage.newMessageText = newText;
+    this._callSubscriber(this._state);
   },
 
   subscribe(observer) {
-    store.rerenderEntireTree = observer;
+    this._state._callSubscriber = observer;
   },
 
   getState() {
-    return store._state;
+    return this._state;
   },
 
 
