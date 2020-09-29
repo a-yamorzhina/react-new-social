@@ -22,6 +22,3 @@ rerenderEntireTree(store.getState());
 
 store.subscribe(rerenderEntireTree);
 
-
-
-// store={store}

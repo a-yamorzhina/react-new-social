@@ -47,7 +47,7 @@ let store = {
   },
 
   subscribe(observer) {
-    this._state._callSubscriber = observer;
+    this._callSubscriber = observer;
   },
 
   getState() {
