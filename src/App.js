@@ -9,15 +9,14 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
-import s from "./components/Navbar/Navbar.module.css";
+
 
 
 const App = (props) => {
 
-
   let DialogsRoute = () => <Dialogs state = {props.state.dialogsPage}
-                                    addMessage={props.store.addMessage}
-                                    updateNewMessageText={props.store.updateNewMessageText}/>;
+                                    dispatch={props.dispatch}/>;
+
 
   return (
     <BrowserRouter>
@@ -32,9 +31,8 @@ const App = (props) => {
             <Redirect to='/profile'/>
           </Route>
           <Route path='/dialogs' render={DialogsRoute}/>
-          <Route path='/profile' render={() => <Profile state={props.state.profilePage}
-                                                        addPost={props.store.addPost}
-                                                        updateNewPostText={props.store.updateNewPostText}/>}/>
+          <Route path='/profile' render={() => <Profile profilePage={props.state.profilePage}
+                                                        dispatch={props.dispatch}/>}/>
           <Route path='/news' render={() => <News/>}/>
           <Route path='/music' render={() => <Music/>}/>
           <Route path='/settings' render={() => <Settings/>}/>
@@ -43,6 +41,8 @@ const App = (props) => {
         </div>
       </div>
     </BrowserRouter>)
+
+
 };
 
 

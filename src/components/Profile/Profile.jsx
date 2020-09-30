@@ -6,17 +6,17 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
 
-  // console.log(props);
-
   return (
     <div>
       <ProfileInfo/>
-      <MyPosts postMessages={props.state.postMessages}
-               newPostText={props.state.newPostText}
-               addPost={props.addPost}
-               updateNewPostText={props.updateNewPostText}/>
+      <MyPosts postMessages={props.profilePage.postMessages}
+               newPostText={props.profilePage.newPostText}
+               dispatch={props.dispatch}/>
+
     </div>
   )
+
+
 };
 
 export default Profile;
