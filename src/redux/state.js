@@ -138,26 +138,26 @@ let store = {
 
 };
 
-export const addPostActionCreator = () => {
+export const addPostCreator = () => {
   return {
     type: ADD_POST
   }
 };
 
-export const updateNewPostTextActionCreator = (text) => {
+export const updateNewPostTextCreator = (text) => {
   return {
     type: UPDATE_NEW_POST_TEXT,
     newText: text
   }
 };
 
-export const sendMessageActionCreator = () => {
+export const sendMessageCreator = () => {
   return {
     type: ADD_MESSAGE
   }
 };
 
-export const updateNewMessageTextActionCreator = (sendingMessage) => {
+export const updateNewMessageTextCreator = (sendingMessage) => {
 
   return {
     type: UPDATE_NEW_MESSAGE_TEXT,
