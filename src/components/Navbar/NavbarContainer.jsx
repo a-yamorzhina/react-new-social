@@ -31,9 +31,9 @@ import {connect} from "react-redux";
 let mapStateToProps = (state) => {
   return {
     NavMas: state.sidebar.nav.map(
-          n => <NavLinkComp route={n.route} name={n.name}/>),
+          n => <NavLinkComp route={n.route} name={n.name} key={n.id}/>),
     FriendsMas: state.sidebar.friendsBlock.map(
-      f => <Friend name={f.name} id={f.id} avatarSrc={f.src}/>)
+      f => <Friend name={f.name} id={f.id} avatarSrc={f.src} key={f.id}/>)
     }
 };
 
