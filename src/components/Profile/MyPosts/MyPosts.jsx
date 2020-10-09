@@ -6,7 +6,7 @@ const MyPosts = (props) => {
 
 
   let postsMas = props.postMessages.map(
-    p => <Post message={p.message} count={p.count}/>
+    p => <Post message={p.message} count={p.count} key={p.id}/>
   );
 
   let newPostElement = React.createRef();
