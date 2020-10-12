@@ -9,6 +9,7 @@ import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
+import AllUsers from "./components/All users/AllUsers";
 
 
 const App = () => {
@@ -27,11 +28,12 @@ const App = () => {
         <Route exact path='/'>
           <Redirect to='/profile'/>
         </Route>
-        <Route path='/dialogs' render={DialogsRoute}/>
         <Route path='/profile' render={() => <Profile/>}/>
+        <Route path='/dialogs' render={DialogsRoute}/>
         <Route path='/news' render={() => <News/>}/>
         <Route path='/music' render={() => <Music/>}/>
         <Route path='/settings' render={() => <Settings/>}/>
+        <Route path='/users' render={() => <AllUsers/>}/>
         <Route path='/friends' render={() => <Friends/>}/>
 
       </div>
