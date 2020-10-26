@@ -6,7 +6,7 @@ const Friends = () => {
 
   return (
 
-  <div className={s.friends}>
+  <div className={s.color}>
     Friends
   </div>
 

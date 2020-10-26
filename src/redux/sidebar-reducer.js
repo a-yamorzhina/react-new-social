@@ -5,7 +5,9 @@ let initialState = {
     {id: 3, route: "/news", name: "News"},
     {id: 4, route: "/music", name: "Music"},
     {id: 5, route: "/settings", name: "Settings"},
-    {id: 6, route: "/friends", name: "Friends"},
+    {id: 6, route: "/users", name: "All users"},
+    {id: 7, route: "/friends", name: "Friends"},
+
   ],
   friendsBlock: [
     {

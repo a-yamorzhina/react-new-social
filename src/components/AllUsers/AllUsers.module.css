@@ -1,0 +1,133 @@
+.firstWrap {
+  padding: 0;
+  margin: 0 0 20px 0;
+  border-bottom: 1px solid #e7edf2;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.secondWrap {
+  border-bottom: 2px solid #8224e3;
+  width: 90px;
+  padding: 0 .75rem .5rem;
+  display: block;
+}
+
+.h3 {
+  color: #8224e3;
+}
+
+.main {
+  display: grid;
+  grid-template-areas: "p p";
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.user {
+  grid-area: p;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 15px 15px 20px rgba(58, 46, 68, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  margin-bottom: .75rem;
+}
+
+.avaImg {
+  display: block;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #838daa;
+}
+
+.item {
+
+}
+
+.h4 {
+  font-size: 1.359em;
+  font-weight: 700;
+  text-align: center;
+}
+
+.activity {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 200px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.count {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #626c72;
+}
+
+.mute {
+  font-size: 90%;
+  color: #bbbbdc;
+}
+
+.connections {
+  margin-bottom: 0;
+  padding: 0;
+  text-align: center;
+}
+
+ul.connections li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 .5rem;
+  line-height: 1.75;
+  border: none !important;
+}
+
+ul.connections li p {
+  margin: 0;
+  line-height: 1;
+}
+
+.secondButton {
+  max-width: 210px;
+  margin-left: auto;
+  margin-top: .75rem;
+  margin-right: auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  background-color: transparent;
+  color: #8224e3;
+  fill: #8224e3;
+  border: 1px solid #8224e3;
+  border-radius: 30px;
+  padding: .375rem 2rem;
+  min-height: 2.5rem;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 2px 5px 0 rgba(58,46,68,0.08);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.secondButton:hover {
+  background-color: #8224e3;
+  color: #fff;
+}
+
+.secondButton:active,
+.secondButton:focus {
+  outline: none;
+}
