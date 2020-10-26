@@ -17,6 +17,8 @@ const AllUsers = (props) => {
       fullName={u.fullName}
       status={u.status}
       src={u.src}
+      friends={u.friends}
+      groups={u.groups}
     />
   );
 

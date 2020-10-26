@@ -28,11 +28,11 @@ const User = (props) => {
           </p>
           <ul className={s.connections}>
             <li>
-              <span className={s.count}>4</span>
+              <span className={s.count}>{props.friends}</span>
               <p className={s.mute}>Friends</p>
             </li>
             <li>
-              <span className={s.count}>6</span>
+              <span className={s.count}>{props.groups}</span>
               <p className={s.mute}>Groups</p>
             </li>
           </ul>
