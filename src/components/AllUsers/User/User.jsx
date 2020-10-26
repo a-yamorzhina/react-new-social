@@ -12,7 +12,7 @@ const User = (props) => {
   };
 
   return (
-    <div>
+    <div key={props.id}>
       <div className={s.user}>
         <div className={s.avatar}>
           <a>
@@ -38,8 +38,8 @@ const User = (props) => {
           </ul>
         </div>
         {props.followOrNot
-          ? <button className={s.secondButton} onClick={changeToUnfollow(props.id)}>Unfollow</button>
-          : <button className={s.secondButton} onClick={changeToFollow(props.id)}>Follow</button>}
+          ? <button className={s.secondButton} onClick={() => {changeToUnfollow(props.id)} }>Unfollow</button>
+          : <button className={s.secondButton} onClick={ () => {changeToFollow(props.id)} }>Follow</button>}
 
       </div>
     </div>
