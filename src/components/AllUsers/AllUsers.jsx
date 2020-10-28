@@ -6,14 +6,17 @@ import userPh from "../../../src/assets/images/user.svg"
 
 const AllUsers = (props) => {
 
+  let getUsers = () => {
 
-  if (props.users.length === 0) {
+    if (props.users.length === 0) {
 
-    axios.get("http://localhost:8080/users.json").then(response => {
-      props.setUsers(response.data.items);
-    })
+      axios.get("http://localhost:8080/users.json").then(response => {
+        props.setUsers(response.data.items);
+      })
 
-  }
+    }
+
+  };
 
   let usersMas = props.users.map(
     u => <User
@@ -40,6 +43,7 @@ const AllUsers = (props) => {
         </div>
       </div>
       <main className={s.main}>
+        <button onClick={getUsers}>Get Users</button>
         {usersMas}
       </main>
     </div>
