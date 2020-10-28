@@ -2,7 +2,7 @@ import React from "react";
 import s from "./AllUsers.module.css";
 import User from "./User/User";
 import * as axios from 'axios'
-import userPhoto from '../../../src/assets/images/user.png';
+import userPh from "../../../src/assets/images/user.svg"
 
 const AllUsers = (props) => {
 
@@ -10,7 +10,6 @@ const AllUsers = (props) => {
   if (props.users.length === 0) {
 
     axios.get("http://localhost:8080/users.json").then(response => {
-      // console.log(response);
       props.setUsers(response.data.items);
     })
 
@@ -27,7 +26,7 @@ const AllUsers = (props) => {
       locationCity={u.location.city}
       name={u.name}
       status={u.status}
-      src={u.src != null ? u.src : userPhoto}
+      src={u.src != null ? u.src : userPh}
       friends={u.friends}
       groups={u.groups}
     />
