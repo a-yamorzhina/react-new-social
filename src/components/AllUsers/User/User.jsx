@@ -1,6 +1,6 @@
 import React from "react";
 import s from "../AllUsers.module.css";
-import userPhoto from '../../../assets/images/user.png';
+
 
 const User = (props) => {
 
@@ -17,7 +17,7 @@ const User = (props) => {
       <div className={s.user}>
         <div className={s.avatar}>
           <a>
-            <img src={props.src != null ? props.src : userPhoto} alt="ava" className={s.avaImg}/>
+            <img src={props.src} alt="ava" className={s.avaImg}/>
           </a>
         </div>
         <div className={s.item}>
@@ -25,7 +25,7 @@ const User = (props) => {
             {props.name}
           </h4>
           <p className={`${s.activity} ${s.mute}`}>
-            {"props.locationCountry"}, {"props.locationCity"}
+            {props.locationCountry}, {props.locationCity}
           </p>
           <ul className={s.connections}>
             <li>

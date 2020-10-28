@@ -2,6 +2,7 @@ import React from "react";
 import s from "./AllUsers.module.css";
 import User from "./User/User";
 import * as axios from 'axios'
+import userPhoto from '../../../src/assets/images/user.png';
 
 const AllUsers = (props) => {
 
@@ -10,7 +11,6 @@ const AllUsers = (props) => {
 
     axios.get("http://localhost:8080/users.json").then(response => {
       // console.log(response);
-      // alert('bbbb');
       props.setUsers(response.data.items);
     })
 
@@ -27,7 +27,7 @@ const AllUsers = (props) => {
       locationCity={u.location.city}
       name={u.name}
       status={u.status}
-      src={u.src}
+      src={u.src != null ? u.src : userPhoto}
       friends={u.friends}
       groups={u.groups}
     />
