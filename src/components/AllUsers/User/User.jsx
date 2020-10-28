@@ -1,6 +1,7 @@
 import React from "react";
 import s from "../AllUsers.module.css";
 
+
 const User = (props) => {
 
   let changeToUnfollow = (userId) => {
@@ -21,18 +22,18 @@ const User = (props) => {
         </div>
         <div className={s.item}>
           <h4 className={s.h4}>
-            {props.fullName}
+            {props.name}
           </h4>
           <p className={`${s.activity} ${s.mute}`}>
             {props.locationCountry}, {props.locationCity}
           </p>
           <ul className={s.connections}>
             <li>
-              <span className={s.count}>4</span>
+              <span className={s.count}>{props.friends}</span>
               <p className={s.mute}>Friends</p>
             </li>
             <li>
-              <span className={s.count}>6</span>
+              <span className={s.count}>{props.groups}</span>
               <p className={s.mute}>Groups</p>
             </li>
           </ul>

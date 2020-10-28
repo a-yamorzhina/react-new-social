@@ -1,9 +1,19 @@
 import React from "react";
 import s from "./AllUsers.module.css";
 import User from "./User/User";
+import * as axios from 'axios'
+import userPh from "../../../src/assets/images/user.svg"
 
 const AllUsers = (props) => {
 
+
+  if (props.users.length === 0) {
+
+    axios.get("http://localhost:8080/users.json").then(response => {
+      props.setUsers(response.data.items);
+    })
+
+  }
 
   let usersMas = props.users.map(
     u => <User
@@ -14,9 +24,11 @@ const AllUsers = (props) => {
       id={u.id}
       locationCountry={u.location.country}
       locationCity={u.location.city}
-      fullName={u.fullName}
+      name={u.name}
       status={u.status}
-      src={u.src}
+      src={u.src != null ? u.src : userPh}
+      friends={u.friends}
+      groups={u.groups}
     />
   );
 
