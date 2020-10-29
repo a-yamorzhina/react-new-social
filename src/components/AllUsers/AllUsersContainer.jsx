@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from "react-redux";
-import AllUsers from "./AllUsers";
 import {followAC, setUsers, unfollowAC} from "../../redux/allUsers-reducer";
+import AllUsersC from "./AllUsersC";
 
 
 let mapStateToProps = (state) => {
@@ -24,6 +24,6 @@ let mapDispatchToProps = (dispatch) => {
   }
 };
 
-const AllUsersContainer = connect(mapStateToProps, mapDispatchToProps)(AllUsers);
+const AllUsersContainer = connect(mapStateToProps, mapDispatchToProps)(AllUsersC);
 
 export default AllUsersContainer;
