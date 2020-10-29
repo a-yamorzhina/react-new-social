@@ -11,10 +11,12 @@ class AllUsers extends React.Component {
   // }
 
   componentDidMount() {
-    axios.get("http://localhost:8080/users.json")
-      .then(response => {
-        this.props.setUsers(response.data.items);
-      })
+    if (this.props.users.length === 0) {
+      axios.get("http://localhost:8080/users.json")
+        .then(response => {
+          this.props.setUsers(response.data.items);
+        })
+    }
   }
 
   usersMap = () => {
@@ -37,6 +39,9 @@ class AllUsers extends React.Component {
 
 
   render() {
+
+    let pagesCount = this.props.totalUsersCount / this.props.pageSize;
+
     return (
       <div>
         <div className={s.firstWrap}>
@@ -44,8 +49,14 @@ class AllUsers extends React.Component {
             <h3 className={s.h3}>All users</h3>
           </div>
         </div>
+        <div>
+          <span className={`${s.selectedPage} ${s.page}`}>1</span>
+          <span className={`${s.unselectedPage} ${s.page}`}>2</span>
+          <span className={`${s.unselectedPage} ${s.page}`}>3</span>
+          <span className={`${s.unselectedPage} ${s.page}`}>4</span>
+          <span className={`${s.unselectedPage} ${s.page}`}>5</span>
+        </div>
         <main className={s.main}>
-          {/*<button onClick={this.getUsers}>Get Users</button>*/}
           {this.usersMap()}
         </main>
       </div>

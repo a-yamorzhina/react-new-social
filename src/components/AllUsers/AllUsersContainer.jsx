@@ -7,6 +7,8 @@ import AllUsers from "./AllUsers";
 let mapStateToProps = (state) => {
   return {
     users: state.allUsersPage.users,
+    pageSize: state.allUsersPage.pageSize,
+    totalUsersCount: state.allUsersPage.totalUsersCount
   }
 };
 
