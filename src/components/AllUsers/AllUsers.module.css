@@ -157,3 +157,9 @@ ul.connections li p {
 .page:hover {
   cursor: pointer;
 }
+
+.pagesContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}

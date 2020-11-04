@@ -6,7 +6,8 @@ const SET_USERS = 'SET-USERS';
 let initialState = {
   users: [],
   pageSize: 5,
-  totalUsersCount: 0
+  totalUsersCount: 30,
+  currentPage: 1
 };
 
 

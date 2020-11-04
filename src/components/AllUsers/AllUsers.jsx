@@ -12,7 +12,7 @@ class AllUsers extends React.Component {
 
   componentDidMount() {
     if (this.props.users.length === 0) {
-      axios.get("http://localhost:8080/users.json")
+      axios.get(`http://localhost:8080/users.json?page=${this.props.currentPage}&count=${this.props.pageSize}`)
         .then(response => {
           this.props.setUsers(response.data.items);
         })
@@ -40,7 +40,13 @@ class AllUsers extends React.Component {
 
   render() {
 
-    let pagesCount = this.props.totalUsersCount / this.props.pageSize;
+    let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+
+    let pages = [];
+
+    for (let i = 1; i <= pagesCount; i++) {
+      pages.push(i);
+    }
 
     return (
       <div>
@@ -49,12 +55,10 @@ class AllUsers extends React.Component {
             <h3 className={s.h3}>All users</h3>
           </div>
         </div>
-        <div>
-          <span className={`${s.selectedPage} ${s.page}`}>1</span>
-          <span className={`${s.unselectedPage} ${s.page}`}>2</span>
-          <span className={`${s.unselectedPage} ${s.page}`}>3</span>
-          <span className={`${s.unselectedPage} ${s.page}`}>4</span>
-          <span className={`${s.unselectedPage} ${s.page}`}>5</span>
+        <div className={s.pagesContainer}>
+          {pages.map(p => {
+            return <span key={p} className={s.page + ' ' + (this.props.currentPage === p ? s.selectedPage : s.unselectedPage)}>{p}</span>
+          })}
         </div>
         <main className={s.main}>
           {this.usersMap()}

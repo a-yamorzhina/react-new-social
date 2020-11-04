@@ -8,7 +8,8 @@ let mapStateToProps = (state) => {
   return {
     users: state.allUsersPage.users,
     pageSize: state.allUsersPage.pageSize,
-    totalUsersCount: state.allUsersPage.totalUsersCount
+    totalUsersCount: state.allUsersPage.totalUsersCount,
+    currentPage: state.allUsersPage.currentPage
   }
 };
 
