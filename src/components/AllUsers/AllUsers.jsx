@@ -12,8 +12,17 @@ class AllUsers extends React.Component {
 
   componentDidMount() {
     if (this.props.users.length === 0) {
-      axios.get(`http://localhost:8080/users.json?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+      axios.get(`https://social-network.samuraijs.com/api/1.0/users/?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+      // axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
+      //   headers: {
+      //     'API-KEY': '5eb56d93-122f-4202-87d0-46a39c50f83a',
+      //     'Access-Control-Allow-Origin' : '*',
+      //     'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+      //   },
+      //   withCredentials: true
+      // })
         .then(response => {
+          console.log(response);
           this.props.setUsers(response.data.items);
         })
     }
