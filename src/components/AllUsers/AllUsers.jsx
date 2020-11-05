@@ -13,17 +13,10 @@ class AllUsers extends React.Component {
   componentDidMount() {
     if (this.props.users.length === 0) {
       axios.get(`https://social-network.samuraijs.com/api/1.0/users/?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-      // axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
-      //   headers: {
-      //     'API-KEY': '5eb56d93-122f-4202-87d0-46a39c50f83a',
-      //     'Access-Control-Allow-Origin' : '*',
-      //     'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-      //   },
-      //   withCredentials: true
-      // })
         .then(response => {
-          console.log(response);
+          // console.log(response);
           this.props.setUsers(response.data.items);
+          this.props.setTotalUsersCount(response.data.totalCount);
         })
     }
   }
@@ -46,6 +39,15 @@ class AllUsers extends React.Component {
       />);
   };
 
+  onPageChanged = (pageNumber) => {
+    this.props.setCurrentPage(pageNumber);
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users/?page=${pageNumber}&count=${this.props.pageSize}`)
+      .then(response => {
+        // console.log(response);
+        this.props.setUsers(response.data.items);
+      })
+  };
+
 
   render() {
 
@@ -66,7 +68,11 @@ class AllUsers extends React.Component {
         </div>
         <div className={s.pagesContainer}>
           {pages.map(p => {
-            return <span key={p} className={s.page + ' ' + (this.props.currentPage === p ? s.selectedPage : s.unselectedPage)}>{p}</span>
+            return <span onClick={(e) => {
+              this.onPageChanged(p)
+            }}
+                         key={p}
+                         className={s.page + ' ' + (this.props.currentPage === p ? s.selectedPage : s.unselectedPage)}>{p}</span>
           })}
         </div>
         <main className={s.main}>
@@ -77,4 +83,4 @@ class AllUsers extends React.Component {
   }
 }
 
-export default AllUsers ;
+export default AllUsers;

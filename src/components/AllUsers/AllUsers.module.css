@@ -154,12 +154,18 @@ ul.connections li p {
   text-align: center;
 }
 
+.page {
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
 .page:hover {
   cursor: pointer;
 }
 
 .pagesContainer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin: 20px 0;
 }
