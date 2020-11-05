@@ -36,13 +36,13 @@ class AllUsers extends React.Component {
         unfollow={this.props.unfollow}
         followOrNot={u.followed}
         id={u.id}
-        locationCountry={u.location.country}
-        locationCity={u.location.city}
+        // locationCountry={u.location.country}
+        // locationCity={u.location.city}
         name={u.name}
         status={u.status}
-        src={u.src != null ? u.src : userPh}
-        friends={u.friends}
-        groups={u.groups}
+        src={u.photos.small != null ? u.photos.small : userPh}
+        // friends={u.friends}
+        // groups={u.groups}
       />);
   };
 

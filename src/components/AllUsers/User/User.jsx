@@ -25,18 +25,19 @@ const User = (props) => {
             {props.name}
           </h4>
           <p className={`${s.activity} ${s.mute}`}>
-            {props.locationCountry}, {props.locationCity}
+            {/*{props.locationCountry}, {props.locationCity}*/}
+            {props.status}
           </p>
-          <ul className={s.connections}>
-            <li>
-              <span className={s.count}>{props.friends}</span>
-              <p className={s.mute}>Friends</p>
-            </li>
-            <li>
-              <span className={s.count}>{props.groups}</span>
-              <p className={s.mute}>Groups</p>
-            </li>
-          </ul>
+          {/*<ul className={s.connections}>*/}
+            {/*<li>*/}
+              {/*<span className={s.count}>{props.friends}</span>*/}
+              {/*<p className={s.mute}>Friends</p>*/}
+            {/*</li>*/}
+            {/*<li>*/}
+              {/*<span className={s.count}>{props.groups}</span>*/}
+              {/*<p className={s.mute}>Groups</p>*/}
+            {/*</li>*/}
+          {/*</ul>*/}
         </div>
         {props.followOrNot
           ? <button className={s.secondButton} onClick={() => {changeToUnfollow(props.id)} }>Unfollow</button>
