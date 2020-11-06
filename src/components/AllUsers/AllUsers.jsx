@@ -1,49 +1,56 @@
 import React from "react";
 import s from "./AllUsers.module.css";
 import User from "./User/User";
-import * as axios from 'axios'
 import userPh from "../../../src/assets/images/user.svg"
 
-const AllUsers = (props) => {
+let AllUsers = (props) => {
 
+ let usersMap = () => {
+    return props.users.map(
+      u => <User
+        key={u.id}
+        follow={props.follow}
+        unfollow={props.unfollow}
+        followOrNot={u.followed}
+        id={u.id}
+        // locationCountry={u.location.country}
+        // locationCity={u.location.city}
+        name={u.name}
+        status={u.status}
+        src={u.photos.small != null ? u.photos.small : userPh}
+        // friends={u.friends}
+        // groups={u.groups}
+      />);
+  };
 
-  if (props.users.length === 0) {
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
-    axios.get("http://localhost:8080/users.json").then(response => {
-      props.setUsers(response.data.items);
-    })
+    let pages = [];
 
-  }
+    for (let i = 1; i <= pagesCount; i++) {
+      pages.push(i);
+    }
 
-  let usersMas = props.users.map(
-    u => <User
-      key={u.id}
-      follow={props.follow}
-      unfollow={props.unfollow}
-      followOrNot={u.followed}
-      id={u.id}
-      locationCountry={u.location.country}
-      locationCity={u.location.city}
-      name={u.name}
-      status={u.status}
-      src={u.src != null ? u.src : userPh}
-      friends={u.friends}
-      groups={u.groups}
-    />
-  );
-
-  return (
-    <div>
-      <div className={s.firstWrap}>
-        <div className={s.secondWrap}>
-          <h3 className={s.h3}>All users</h3>
+    return (
+      <div>
+        <div className={s.firstWrap}>
+          <div className={s.secondWrap}>
+            <h3 className={s.h3}>All users</h3>
+          </div>
         </div>
+        <div className={s.pagesContainer}>
+          {pages.map(p => {
+            return <span onClick={(e) => {props.onPageChanged(p)}}
+                         key={p}
+                         className={s.page + ' ' + (props.currentPage === p ? s.selectedPage : s.unselectedPage)}>{p}</span>
+          })}
+        </div>
+        <main className={s.main}>
+          {usersMap()}
+        </main>
       </div>
-      <main className={s.main}>
-        {usersMas}
-      </main>
-    </div>
-  )
+    )
 };
+
 
 export default AllUsers;
