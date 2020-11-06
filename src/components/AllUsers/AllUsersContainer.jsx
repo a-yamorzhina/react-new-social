@@ -1,18 +1,18 @@
 import React from "react"
 import {connect} from "react-redux";
 import {
-  followAC,
-  setCurrentPageAC,
-  setTotalUsersCountAC,
+  follow,
+  setCurrentPage,
+  setTotalUsersCount,
   setUsers,
-  toggleIsFetchingAC,
-  unfollowAC
+  toggleIsFetching,
+  unfollow
 } from "../../redux/allUsers-reducer";
 import * as axios from "axios";
 import AllUsers from "./AllUsers";
 import Preloader from "../common/Preloader/Preloader";
 
-class AllUsersAPIContainer extends React.Component {
+ class AllUsersAPIContainer extends React.Component {
 
   // constructor(props) {
   //   super(props);
@@ -69,29 +69,31 @@ let mapStateToProps = (state) => {
   }
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (userId) => {
-      dispatch(followAC(userId))
-    },
-    unfollow: (userId) => {
-      dispatch(unfollowAC(userId))
-    },
-    setUsers: (users) => {
-      dispatch(setUsers(users))
-    },
-    setCurrentPage: (pageNumber) => {
-      dispatch(setCurrentPageAC(pageNumber))
-    },
-    setTotalUsersCount: (totalCount) => {
-      dispatch(setTotalUsersCountAC(totalCount))
-    },
-    toggleIsFetching: (isFetching) => {
-      dispatch(toggleIsFetchingAC(isFetching))
-    }
-  }
-};
+// let mapDispatchToProps = (dispatch) => {
+//   return {
+//     follow: (userId) => {
+//       dispatch(followAC(userId))
+//     },
+//     unfollow: (userId) => {
+//       dispatch(unfollowAC(userId))
+//     },
+//     setUsers: (users) => {
+//       dispatch(setUsers(users))
+//     },
+//     setCurrentPage: (pageNumber) => {
+//       dispatch(setCurrentPageAC(pageNumber))
+//     },
+//     setTotalUsersCount: (totalCount) => {
+//       dispatch(setTotalUsersCountAC(totalCount))
+//     },
+//     toggleIsFetching: (isFetching) => {
+//       dispatch(toggleIsFetchingAC(isFetching))
+//     }
+//   }
+// };
 
-const AllUsersContainer = connect(mapStateToProps, mapDispatchToProps)(AllUsersAPIContainer);
+const AllUsersContainer = connect(mapStateToProps, {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount,
+                                  toggleIsFetching})(AllUsersAPIContainer);
 
 export default AllUsersContainer;
+
