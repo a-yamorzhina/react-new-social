@@ -1,32 +1,16 @@
 import React from "react";
 import s from "./AllUsers.module.css";
 import User from "./User/User";
-import * as axios from 'axios'
 import userPh from "../../../src/assets/images/user.svg"
 
-class AllUsers extends React.Component {
+let AllUsers = (props) => {
 
-  // constructor(props) {
-  //   super(props);
-  // }
-
-  componentDidMount() {
-    if (this.props.users.length === 0) {
-      axios.get(`https://social-network.samuraijs.com/api/1.0/users/?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-        .then(response => {
-          // console.log(response);
-          this.props.setUsers(response.data.items);
-          this.props.setTotalUsersCount(response.data.totalCount);
-        })
-    }
-  }
-
-  usersMap = () => {
-    return this.props.users.map(
+ let usersMap = () => {
+    return props.users.map(
       u => <User
         key={u.id}
-        follow={this.props.follow}
-        unfollow={this.props.unfollow}
+        follow={props.follow}
+        unfollow={props.unfollow}
         followOrNot={u.followed}
         id={u.id}
         // locationCountry={u.location.country}
@@ -39,19 +23,7 @@ class AllUsers extends React.Component {
       />);
   };
 
-  onPageChanged = (pageNumber) => {
-    this.props.setCurrentPage(pageNumber);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users/?page=${pageNumber}&count=${this.props.pageSize}`)
-      .then(response => {
-        // console.log(response);
-        this.props.setUsers(response.data.items);
-      })
-  };
-
-
-  render() {
-
-    let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
     let pages = [];
 
@@ -68,19 +40,17 @@ class AllUsers extends React.Component {
         </div>
         <div className={s.pagesContainer}>
           {pages.map(p => {
-            return <span onClick={(e) => {
-              this.onPageChanged(p)
-            }}
+            return <span onClick={(e) => {props.onPageChanged(p)}}
                          key={p}
-                         className={s.page + ' ' + (this.props.currentPage === p ? s.selectedPage : s.unselectedPage)}>{p}</span>
+                         className={s.page + ' ' + (props.currentPage === p ? s.selectedPage : s.unselectedPage)}>{p}</span>
           })}
         </div>
         <main className={s.main}>
-          {this.usersMap()}
+          {usersMap()}
         </main>
       </div>
     )
-  }
-}
+};
+
 
 export default AllUsers;
