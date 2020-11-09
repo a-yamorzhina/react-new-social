@@ -28,7 +28,7 @@ const App = () => {
         <Route exact path='/'>
           <Redirect to='/profile'/>
         </Route>
-        <Route path='/profile' render={() => <ProfileContainer/>}/>
+        <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
         <Route path='/dialogs' render={DialogsRoute}/>
         <Route path='/news' render={() => <News/>}/>
         <Route path='/music' render={() => <Music/>}/>
