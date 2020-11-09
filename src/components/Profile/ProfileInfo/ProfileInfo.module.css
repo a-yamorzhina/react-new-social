@@ -1,7 +1,73 @@
-.descriptionBlock {
-  padding: 20px;
+.profileInfo {
+  position: relative;
 }
 
-.width {
-  width: 950px;
+.descriptionBlockContainer {
+  display: flex;
+  justify-content: space-around;
 }
+
+
+.descriptionBlock {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.img {
+  width: 950px;
+  position: relative;
+}
+
+.nameMe{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  left: 7%;
+  top: 45%;
+  position: absolute;
+}
+
+.fullName {
+  font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 700;
+  color: #4f515b;
+  margin: 0;
+}
+
+.avatar {
+  border: solid 2px #FFF;
+  background: rgba( 255, 255, 255, 0.8 );
+  margin-bottom: .75rem;
+  border-radius: 1rem;
+  width: 200px;
+}
+
+.contacts {
+  max-width: 35px;
+}
+
+.contactsPosition {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  justify-content: center;
+}
+
+.contactsPosition:hover .socialName {
+  color: #8224e3;
+}
+
+.socialIcon {
+  width: 35px;
+}
+
+.socialName {
+  font-size: 90%;
+  font-weight: 500;
+  color: #838daa;
+  text-align: center;
+}
+
