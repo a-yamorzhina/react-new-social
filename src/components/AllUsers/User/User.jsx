@@ -1,5 +1,6 @@
 import React from "react";
 import s from "../AllUsers.module.css";
+import {NavLink} from "react-router-dom";
 
 
 const User = (props) => {
@@ -16,9 +17,9 @@ const User = (props) => {
     <div key={props.id}>
       <div className={s.user}>
         <div className={s.avatar}>
-          <a>
+          <NavLink to={'/profile/' + props.id}>
             <img src={props.src} alt="ava" className={s.avaImg}/>
-          </a>
+          </NavLink>
         </div>
         <div className={s.item}>
           <h4 className={s.h4}>

@@ -1,7 +1,101 @@
-.descriptionBlock {
-  padding: 20px;
+.profileInfo {
+  position: relative;
 }
 
-.width {
-  width: 950px;
+.descriptionBlockContainer {
+  display: flex;
+  justify-content: space-around;
 }
+
+
+.descriptionBlock {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.img {
+  width: 950px;
+  height: 320px;
+  position: relative;
+  background-image: url("https://www.w3schools.com/howto/img_snow_wide.jpg");
+}
+
+.img:after {
+  content:'';
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  background: black;
+  opacity: 0.2;
+}
+
+
+.nameMe{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  left: 7%;
+  top: 45%;
+  position: absolute;
+  z-index: 555;
+}
+
+.fullName {
+  font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 700;
+  color: #4f515b;
+  margin: 0;
+}
+
+.avatar {
+  border: solid 2px #FFF;
+  background: rgba( 255, 255, 255, 0.8 );
+  margin-bottom: .75rem;
+  border-radius: 1rem;
+  width: 200px;
+}
+
+.contacts {
+  max-width: 35px;
+}
+
+.contactsPosition {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  justify-content: center;
+}
+
+.contactsPosition:hover {
+  cursor: pointer;
+}
+
+.contactsPosition:hover .socialName {
+  color: #8224e3;
+}
+
+.contactsPosition:hover .socialIcon {
+  fill: #8224e3;
+}
+
+.socialIcon {
+  width: 35px;
+  height: 25px;
+  fill: #838daa;
+}
+
+.socialName {
+  font-size: 90%;
+  font-weight: 500;
+  color: #838daa;
+  text-align: center;
+  margin-right: 6px;
+}
+
