@@ -1,6 +1,8 @@
 import React from "react";
 import s from "../AllUsers.module.css";
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
+import {usersAPI} from "../../../API/api";
 
 
 const User = (props) => {
@@ -30,19 +32,35 @@ const User = (props) => {
             {props.status}
           </p>
           {/*<ul className={s.connections}>*/}
-            {/*<li>*/}
-              {/*<span className={s.count}>{props.friends}</span>*/}
-              {/*<p className={s.mute}>Friends</p>*/}
-            {/*</li>*/}
-            {/*<li>*/}
-              {/*<span className={s.count}>{props.groups}</span>*/}
-              {/*<p className={s.mute}>Groups</p>*/}
-            {/*</li>*/}
+          {/*<li>*/}
+          {/*<span className={s.count}>{props.friends}</span>*/}
+          {/*<p className={s.mute}>Friends</p>*/}
+          {/*</li>*/}
+          {/*<li>*/}
+          {/*<span className={s.count}>{props.groups}</span>*/}
+          {/*<p className={s.mute}>Groups</p>*/}
+          {/*</li>*/}
           {/*</ul>*/}
         </div>
         {props.followOrNot
-          ? <button className={s.secondButton} onClick={() => {changeToUnfollow(props.id)} }>Unfollow</button>
-          : <button className={s.secondButton} onClick={ () => {changeToFollow(props.id)} }>Follow</button>}
+          ? <button className={s.secondButton} onClick={() => {
+            usersAPI.unfollow(props.id).then(data => {
+                if (data.resultCode === 0) {
+                  changeToUnfollow(props.id);
+                }
+              });
+          }}>
+            Unfollow
+          </button>
+          : <button className={s.secondButton} onClick={() => {
+            usersAPI.follow(props.id).then(data => {
+                if (data.resultCode === 0) {
+                  changeToFollow(props.id);
+                }
+              })
+          }}>
+            Follow
+          </button>}
 
       </div>
     </div>

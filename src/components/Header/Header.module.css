@@ -3,8 +3,26 @@
   /*grid-area это псевдонимы для grid template areas */
   background-color: #383a45;
   padding: 20px 20px 20px 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header img {
   width: 40px;
+}
+
+.loginBlock {
+  width: 100px;
+  background-color: #834CA2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.loginLink {
+  color: white;
+  text-decoration: none;
 }
