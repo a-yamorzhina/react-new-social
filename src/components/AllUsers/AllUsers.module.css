@@ -127,6 +127,13 @@ ul.connections li p {
   color: #fff;
 }
 
+.secondButton:disabled {
+  border: #626c72;
+  background-color: #fff;
+  color: #626c72;
+  cursor: default;
+}
+
 .secondButton:active,
 .secondButton:focus {
   outline: none;
