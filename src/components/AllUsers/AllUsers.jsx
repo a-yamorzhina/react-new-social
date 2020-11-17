@@ -12,6 +12,8 @@ let AllUsers = (props) => {
         follow={props.follow}
         unfollow={props.unfollow}
         followOrNot={u.followed}
+        toggleFollowingProgress={props.toggleFollowingProgress}
+        followingInProgress={props.followingInProgress}
         id={u.id}
         // locationCountry={u.location.country}
         // locationCity={u.location.city}

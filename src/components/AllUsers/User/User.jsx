@@ -1,19 +1,9 @@
 import React from "react";
 import s from "../AllUsers.module.css";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
-import {usersAPI} from "../../../API/api";
 
 
-const User = (props) => {
-
-  let changeToUnfollow = (userId) => {
-    props.unfollow(userId);
-  };
-
-  let changeToFollow = (userId) => {
-    props.follow(userId);
-  };
+const  User = (props) => {
 
   return (
     <div key={props.id}>
@@ -43,22 +33,12 @@ const User = (props) => {
           {/*</ul>*/}
         </div>
         {props.followOrNot
-          ? <button className={s.secondButton} onClick={() => {
-            usersAPI.unfollow(props.id).then(data => {
-                if (data.resultCode === 0) {
-                  changeToUnfollow(props.id);
-                }
-              });
-          }}>
+          ? <button disabled={props.followingInProgress.some(id => id === props.id)} className={s.secondButton}
+                    onClick={() => {props.unfollow(props.id)}}>
             Unfollow
           </button>
-          : <button className={s.secondButton} onClick={() => {
-            usersAPI.follow(props.id).then(data => {
-                if (data.resultCode === 0) {
-                  changeToFollow(props.id);
-                }
-              })
-          }}>
+          : <button disabled={props.followingInProgress.some(id => id === props.id)} className={s.secondButton}
+                    onClick={() => {props.follow(props.id)}}>
             Follow
           </button>}
 
