@@ -24,13 +24,6 @@ export const usersAPI = {
       });
   },
 
-  auth ()  {
-    return instance.get(`auth/me`)
-      .then(response => {
-        return response.data;
-      });
-  },
-
   profile (userID)  {
     return instance.get(`profile/${userID}`)
       .then(response => {
@@ -52,4 +45,13 @@ export const usersAPI = {
       });
   }
 
+};
+
+export const authAPI = {
+  auth ()  {
+    return instance.get(`auth/me`)
+      .then(response => {
+        return response.data;
+      });
+  },
 };
