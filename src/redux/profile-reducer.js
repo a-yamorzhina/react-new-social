@@ -75,9 +75,8 @@ export const setUserProfile = (profile) => {
 
 export const getProfile = (userId) => {
   return (dispatch) => {
-    usersAPI.profile(userId).then(data => {
-      // console.log(response);
-      dispatch(setUserProfile(data));
+    usersAPI.profile(userId).then(response => {
+      dispatch(setUserProfile(response.data));
     })
   }
 };
