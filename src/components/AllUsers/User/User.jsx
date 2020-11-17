@@ -1,20 +1,9 @@
 import React from "react";
 import s from "../AllUsers.module.css";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
-import {usersAPI} from "../../../API/api";
-import AllUsers from "../AllUsers";
 
 
 const  User = (props) => {
-
-  let changeToUnfollow = (userId) => {
-    props.unfollow(userId);
-  };
-
-  let changeToFollow = (userId) => {
-    props.follow(userId);
-  };
 
   return (
     <div key={props.id}>
@@ -44,27 +33,12 @@ const  User = (props) => {
           {/*</ul>*/}
         </div>
         {props.followOrNot
-          ? <button disabled={props.followingInProgress.some(id => id === props.id)} className={s.secondButton} onClick={() => {
-            props.toggleFollowingProgress(true, props.id);
-            usersAPI.unfollow(props.id)
-              .then(data => {
-                if (data.resultCode === 0) {
-                  changeToUnfollow(props.id);
-                }
-                props.toggleFollowingProgress(false, props.id);
-              });
-          }}>
+          ? <button disabled={props.followingInProgress.some(id => id === props.id)} className={s.secondButton}
+                    onClick={() => {props.unfollow(props.id)}}>
             Unfollow
           </button>
-          : <button disabled={props.followingInProgress.some(id => id === props.id)} className={s.secondButton} onClick={() => {
-            props.toggleFollowingProgress(true, props.id);
-            usersAPI.follow(props.id).then(data => {
-                if (data.resultCode === 0) {
-                  changeToFollow(props.id);
-                }
-              props.toggleFollowingProgress(false, props.id);
-              })
-          }}>
+          : <button disabled={props.followingInProgress.some(id => id === props.id)} className={s.secondButton}
+                    onClick={() => {props.follow(props.id)}}>
             Follow
           </button>}
 
