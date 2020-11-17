@@ -5,9 +5,9 @@ import {
   setCurrentPage,
   toggleFollowingProgress, unfollow, unfollowSuccess,
 } from "../../redux/allUsers-reducer";
-
 import AllUsers from "./AllUsers";
 import Preloader from "../common/Preloader/Preloader";
+
 
 
 class AllUsersAPIContainer extends React.Component {

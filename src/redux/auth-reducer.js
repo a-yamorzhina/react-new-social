@@ -1,3 +1,6 @@
+import {usersAPI} from "../API/api";
+import {toggleFollowingProgress, unfollowSuccess} from "./allUsers-reducer";
+
 const SET_USER_DATA = 'SET-USER-DATA';
 
 
@@ -28,6 +31,18 @@ export const setAuthUserDataAC = (userId, email, login) => {
   return {
     type: SET_USER_DATA,
     data: {userId, email, login},
+  }
+};
+
+export const auth = () => {
+  return (dispatch) => {
+    usersAPI.auth().then(data => {
+      // debugger;
+      if (data.resultCode === 0) {
+        let {email, id, login} = data.data;
+        dispatch(setAuthUserDataAC(email, id, login));
+      }
+    })
   }
 };
 
