@@ -17,39 +17,42 @@ const App = () => {
 
   let DialogsRoute = () => <DialogsContainer/>;
 
-  let path = '/login'
+  let path = window.location.pathname;
 
-  if (path) {
-    return <Route path={path} render={() => <Login/>}/>
+  if (path !== "/login") {
+    return (
+      <div>
+        <div className="appWrapper" id='div'>
+
+          <HeaderContainer/>
+
+          <NavbarContainer/>
+
+          <div className="app-wrapper-content">
+            <Route exact path='/'>
+              <Redirect to='/profile'/>
+            </Route>
+            <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
+            <Route path='/dialogs' render={DialogsRoute}/>
+            <Route path='/news' render={() => <News/>}/>
+            <Route path='/music' render={() => <Music/>}/>
+            <Route path='/settings' render={() => <Settings/>}/>
+            <Route path='/users' render={() => <AllUsersContainer/>}/>
+            <Route path='/friends' render={() => <Friends/>}/>
+
+          </div>
+        </div>
+
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        <Route path='/login' render={() => <Login/>}/>
+      </div>
+    )
   }
 
-  return (
-    <div>
-
-      <div className="app-wrapper">
-
-        <HeaderContainer/>
-
-        <NavbarContainer/>
-
-        <div className="app-wrapper-content">
-
-          <Route exact path='/'>
-            <Redirect to='/profile'/>
-          </Route>
-          <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
-          <Route path='/dialogs' render={DialogsRoute}/>
-          <Route path='/news' render={() => <News/>}/>
-          <Route path='/music' render={() => <Music/>}/>
-          <Route path='/settings' render={() => <Settings/>}/>
-          <Route path='/users' render={() => <AllUsersContainer/>}/>
-          <Route path='/friends' render={() => <Friends/>}/>
-
-        </div>
-      </div>
-
-    </div>
-  )
 };
 
 

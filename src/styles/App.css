@@ -1,4 +1,4 @@
-.app-wrapper {
+.appWrapper {
   margin: 0 auto;
   display: grid;
   width: 1200px;
@@ -16,3 +16,8 @@
   border: 1px solid #e7edf2;
   padding: 20px;
 }
+
+.none {
+  display: none;
+}
+
