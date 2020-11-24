@@ -26,21 +26,14 @@ const profileReducer = (state = initialState, action) => {
         return  {
           ...state,
           postMessages: [...state.postMessages, newPost],
-          // postMessages.push(newPost),
           newPostText: '',
         };
-        // stateCopy.postMessages = [...state.postMessages];
-        // stateCopy.postMessages.push(newPost);
-        // stateCopy.newPostText = '';
-        // return stateCopy;
     }
     case UPDATE_NEW_POST_TEXT: {
       return {
         ...state,
         newPostText: action.newText,
       };
-      // stateCopy.newPostText = action.newText;
-      // return stateCopy;
     }
     case SET_USER_PROFILE: {
       return {
