@@ -10,35 +10,49 @@ import NavbarContainer from "./components/Navbar/NavbarContainer";
 import AllUsersContainer from "./components/AllUsers/AllUsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 
 
 const App = () => {
 
   let DialogsRoute = () => <DialogsContainer/>;
 
+  let path = window.location.pathname;
 
-  return (
-    <div className="app-wrapper">
-      <HeaderContainer/>
+  if (path !== "/login") {
+    return (
+      <div>
+        <div className="appWrapper" id='div'>
 
-      <NavbarContainer/>
+          <HeaderContainer/>
 
-      <div className="app-wrapper-content">
+          <NavbarContainer/>
 
-        <Route exact path='/'>
-          <Redirect to='/profile'/>
-        </Route>
-        <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
-        <Route path='/dialogs' render={DialogsRoute}/>
-        <Route path='/news' render={() => <News/>}/>
-        <Route path='/music' render={() => <Music/>}/>
-        <Route path='/settings' render={() => <Settings/>}/>
-        <Route path='/users' render={() => <AllUsersContainer/>}/>
-        <Route path='/friends' render={() => <Friends/>}/>
+          <div className="app-wrapper-content">
+            <Route exact path='/'>
+              <Redirect to='/profile'/>
+            </Route>
+            <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
+            <Route path='/dialogs' render={DialogsRoute}/>
+            <Route path='/news' render={() => <News/>}/>
+            <Route path='/music' render={() => <Music/>}/>
+            <Route path='/settings' render={() => <Settings/>}/>
+            <Route path='/users' render={() => <AllUsersContainer/>}/>
+            <Route path='/friends' render={() => <Friends/>}/>
+
+          </div>
+        </div>
 
       </div>
-    </div>
-  )
+    )
+  } else {
+    return (
+      <div>
+        <Route path='/login' render={() => <Login/>}/>
+      </div>
+    )
+  }
+
 };
 
 

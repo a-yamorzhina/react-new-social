@@ -26,23 +26,14 @@ export const usersAPI = {
 
   profile (userID)  {
     return instance.get(`profile/${userID}`)
-      .then(response => {
-        return response.data;
-      });
   },
 
   follow (userID)  {
     return instance2.post(`follow/${userID}`)
-      .then(response => {
-        return response.data;
-      });
   },
 
   unfollow (userID)  {
     return instance2.delete(`follow/${userID}`)
-      .then(response => {
-        return response.data;
-      });
   }
 
 };

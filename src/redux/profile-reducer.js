@@ -1,5 +1,5 @@
 import {usersAPI} from "../API/api";
-import {setAuthUserDataAC} from "./auth-reducer";
+
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
@@ -26,21 +26,14 @@ const profileReducer = (state = initialState, action) => {
         return  {
           ...state,
           postMessages: [...state.postMessages, newPost],
-          // postMessages.push(newPost),
           newPostText: '',
         };
-        // stateCopy.postMessages = [...state.postMessages];
-        // stateCopy.postMessages.push(newPost);
-        // stateCopy.newPostText = '';
-        // return stateCopy;
     }
     case UPDATE_NEW_POST_TEXT: {
       return {
         ...state,
         newPostText: action.newText,
       };
-      // stateCopy.newPostText = action.newText;
-      // return stateCopy;
     }
     case SET_USER_PROFILE: {
       return {
@@ -75,9 +68,8 @@ export const setUserProfile = (profile) => {
 
 export const getProfile = (userId) => {
   return (dispatch) => {
-    usersAPI.profile(userId).then(data => {
-      // console.log(response);
-      dispatch(setUserProfile(data));
+    usersAPI.profile(userId).then(response => {
+      dispatch(setUserProfile(response.data));
     })
   }
 };
