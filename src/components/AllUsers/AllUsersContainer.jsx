@@ -26,6 +26,7 @@ class AllUsersContainer extends React.Component {
   };
 
   render() {
+
     return <>
       {/*<> - фрагмент, возвращающийся в качестве одного корневого элемента*/}
       {this.props.isFetching ? <Preloader/> : null}
@@ -60,7 +61,7 @@ export default  compose(
     followSuccess, unfollowSuccess, setCurrentPage, toggleFollowingProgress, getUsers,
     follow, unfollow
   }),
-  // withAuthRedirect,
+  withAuthRedirect,
 )(AllUsersContainer);
 
 
