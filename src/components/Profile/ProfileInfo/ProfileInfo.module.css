@@ -115,3 +115,15 @@
   font-size: 90%;
   color: #bbbbdc;
 }
+
+.input {
+  font-size: 90%;
+  padding: 8px;
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #8324e2;
+  box-shadow: 0px 0px 5px 0px rgba(219,219,219,.75);
+  text-shadow: 0px 0px 0px rgba(42,42,42,.75);
+  outline: none;
+}

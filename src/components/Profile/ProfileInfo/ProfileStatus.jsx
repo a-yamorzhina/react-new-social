@@ -23,10 +23,10 @@ class ProfileStatus extends React.Component {
     return (
       <div className={s.statusContainer}>
         {!this.state.editMode &&
-          <span className={s.status} onDoubleClick={ () => {this.activateEditMode()}}>{this.props.onGetStatus(this.props.userId)}</span>
+          <span className={s.status} onDoubleClick={ () => {this.activateEditMode()}}>{this.props.onGetStatus}</span>
         }
         {this.state.editMode &&
-          <input onBlur={ () => {this.deactivateEditMode()}} autoFocus={true} value={this.props.status} />
+          <input className={s.input} onBlur={ () => {this.deactivateEditMode()}} autoFocus={true} value={this.props.status} />
         }
       </div>
     )
