@@ -1,9 +1,11 @@
 import {usersAPI} from "../API/api";
+import {followSuccess, toggleFollowingProgress} from "./allUsers-reducer";
 
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const GET_STATUS = 'GET_STATUS';
 
 let initialState = {
   postMessages: [
@@ -11,7 +13,8 @@ let initialState = {
     {id: 2, message: "it's my first post. LOL", count: "6"},
   ],
   newPostText: '',
-  profile: null
+  profile: null,
+  status: '',
 };
 
 
@@ -41,6 +44,12 @@ const profileReducer = (state = initialState, action) => {
         profile: action.profile,
       };
     }
+    case GET_STATUS: {
+      return  {
+        ...state,
+        status: action.status,
+      }
+    }
     default:
       return state;
   }
@@ -66,10 +75,29 @@ export const setUserProfile = (profile) => {
   }
 };
 
+export const setStatus = (userId) => {
+  return {
+    type: GET_STATUS,
+    userId
+  }
+}
+
 export const getProfile = (userId) => {
   return (dispatch) => {
     usersAPI.profile(userId).then(response => {
       dispatch(setUserProfile(response.data));
+    })
+  }
+};
+
+export const getStatus = (userId) => {
+  return (dispatch) => {
+    dispatch(toggleFollowingProgress(true, userId));
+    usersAPI.getStatus(userId).then(response => {
+      if (response.data.resultCode === 0) {
+        dispatch(setStatus(userId));
+      }
+      dispatch(toggleFollowingProgress(false, userId));
     })
   }
 };

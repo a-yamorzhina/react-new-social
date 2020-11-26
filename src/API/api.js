@@ -32,8 +32,16 @@ export const usersAPI = {
     return instance2.post(`follow/${userID}`)
   },
 
-  unfollow (userID)  {
+  unfollow (userID) {
     return instance2.delete(`follow/${userID}`)
+  },
+
+  getStatus (userID) {
+    return instance2.get(`/profile/status/${userID}`)
+  },
+
+  updateStatus () {
+    return instance2.put(`/profile/status/`)
   }
 
 };

@@ -99,3 +99,19 @@
   margin-right: 6px;
 }
 
+.statusContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.status {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 200px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 90%;
+  color: #bbbbdc;
+}
