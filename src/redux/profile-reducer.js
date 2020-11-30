@@ -1,11 +1,9 @@
-import {usersAPI} from "../API/api";
-import {followSuccess, toggleFollowingProgress} from "./allUsers-reducer";
-
+import {profileAPI, usersAPI} from "../API/api";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
-const GET_STATUS = 'GET_STATUS';
+const SET_USER_PROFILE = 'SET-USER-PROFILE';
+const SET_STATUS = 'SET-STATUS';
 
 let initialState = {
   postMessages: [
@@ -44,7 +42,7 @@ const profileReducer = (state = initialState, action) => {
         profile: action.profile,
       };
     }
-    case GET_STATUS: {
+    case SET_STATUS: {
       return  {
         ...state,
         status: action.status,
@@ -75,16 +73,17 @@ export const setUserProfile = (profile) => {
   }
 };
 
-export const setStatus = (userId) => {
+export const setStatus = (status) => {
   return {
-    type: GET_STATUS,
-    userId
+    type: SET_STATUS,
+    status: status
   }
 }
 
+
 export const getProfile = (userId) => {
   return (dispatch) => {
-    usersAPI.profile(userId).then(response => {
+    profileAPI.profile(userId).then(response => {
       dispatch(setUserProfile(response.data));
     })
   }
@@ -92,14 +91,20 @@ export const getProfile = (userId) => {
 
 export const getStatus = (userId) => {
   return (dispatch) => {
-    dispatch(toggleFollowingProgress(true, userId));
-    usersAPI.getStatus(userId).then(response => {
-      if (response.data.resultCode === 0) {
-        dispatch(setStatus(userId));
-      }
-      dispatch(toggleFollowingProgress(false, userId));
+    profileAPI.getStatus(userId)
+      .then(response => {
+        dispatch(setStatus(response.data));
     })
   }
 };
+
+export const  updateStatus = (status) => (dispatch) => {
+    profileAPI.updateStatus(status)
+      .then(response => {
+        if (response.data.resultCode === 0) {
+          dispatch(setStatus(status));
+        }
+      });
+  };
 
 export default profileReducer;
