@@ -26,6 +26,13 @@ const Login = (props) => {
           </span>
             <input className={s.input} placeholder='Password' type="password"/>
           </div>
+          <div className={s.rememberMe}>
+            <label className={s.rememberText}>
+              <input className={s.elementRememberMe} type="checkbox"/>
+              Remember
+            </label>
+
+          </div>
             <button type="submit" className={s.submit}>Log Into Your Account</button>
         </form>
       </div>
