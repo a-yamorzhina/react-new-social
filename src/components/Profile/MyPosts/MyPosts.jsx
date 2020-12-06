@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import {NewPostReduxForm} from "./AddPostForm";
 
 const MyPosts = (props) => {
 
@@ -9,18 +10,10 @@ const MyPosts = (props) => {
     p => <Post message={p.message} count={p.count} key={p.id}/>
   );
 
-  let newPostElement = React.createRef();
 
-
-  let onAddPost = () => {
-    props.addPost();
-  };
-
-
-  let onPostChange = () => {
-    let text = newPostElement.current.value;
-    props.updateNewPostText(text);
-  };
+  const onAddPost = (values) => {
+    props.addPost(values.postText);
+  }
 
 
   return (
@@ -31,10 +24,7 @@ const MyPosts = (props) => {
         </div>
       </div>
 
-      <div>
-        <textarea className={s.textareaStyle} ref={newPostElement} value={props.newPostText} onChange={onPostChange}/>
-        <button className={s.mainButton} onClick={onAddPost}>New post</button>
-      </div>
+      <NewPostReduxForm onSubmit={onAddPost}/>
 
       <div className={s.posts}>
         {postsMas}
@@ -44,3 +34,5 @@ const MyPosts = (props) => {
 };
 
 export default MyPosts;
+
+
