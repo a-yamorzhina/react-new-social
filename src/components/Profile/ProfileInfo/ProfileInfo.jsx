@@ -1,8 +1,8 @@
 import React from "react";
 import s from "./ProfileInfo.module.css";
 import Preloader from "../../common/Preloader/Preloader";
-import userPhProfile from "../../../../src/assets/images/user-opacity.svg"
-import {Redirect} from "react-router-dom";
+import userPhProfile from "../../../../src/assets/images/user-opacity.svg";
+import ProfileStatus from "./ProfileStatus";
 
 
 const ProfileInfo = (props) => {
@@ -22,6 +22,7 @@ const ProfileInfo = (props) => {
           <img src={props.profile.photos.small != null ? props.profile.photos.small : userPhProfile} alt='avatar'
                className={s.avatar}/>
           <h2 className={s.fullName}>{props.profile.fullName}</h2>
+          <ProfileStatus status={props.status} updateStatus={props.updateStatus}> </ProfileStatus>
         </div>
         <div className={s.descriptionBlock}>
           <div className={s.contacts}>

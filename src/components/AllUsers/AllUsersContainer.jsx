@@ -7,10 +7,12 @@ import {
 } from "../../redux/allUsers-reducer";
 import AllUsers from "./AllUsers";
 import Preloader from "../common/Preloader/Preloader";
+import {compose} from "redux";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 
 
-class AllUsersAPIContainer extends React.Component {
+class AllUsersContainer extends React.Component {
 
   componentDidMount() {
 
@@ -24,6 +26,7 @@ class AllUsersAPIContainer extends React.Component {
   };
 
   render() {
+
     return <>
       {/*<> - фрагмент, возвращающийся в качестве одного корневого элемента*/}
       {this.props.isFetching ? <Preloader/> : null}
@@ -53,17 +56,12 @@ let mapStateToProps = (state) => {
   }
 };
 
-// let mapDispatchToProps = (dispatch) => {
-//   return {
-//     follow: (userId) => {
-//       dispatch(followAC(userId))
-//     },
-//   }
-// };
+export default  compose(
+  connect(mapStateToProps, {
+    followSuccess, unfollowSuccess, setCurrentPage, toggleFollowingProgress, getUsers,
+    follow, unfollow
+  }),
+  withAuthRedirect,
+)(AllUsersContainer);
 
-const AllUsersContainer = connect(mapStateToProps, {followSuccess, unfollowSuccess, setCurrentPage, toggleFollowingProgress, getUsers,
-follow, unfollow})
-(AllUsersAPIContainer);
-
-export default AllUsersContainer;
 
