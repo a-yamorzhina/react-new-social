@@ -19,7 +19,7 @@ const App = () => {
 
   let path = window.location.pathname;
 
-  if (path !== "/login") {
+
     return (
       <div>
         <div className="appWrapper" id='div'>
@@ -39,19 +39,13 @@ const App = () => {
             <Route path='/settings' render={() => <Settings/>}/>
             <Route path='/users' render={() => <AllUsersContainer/>}/>
             <Route path='/friends' render={() => <Friends/>}/>
-
+            <Route path='/login' render={() => <Login/>}/>
           </div>
         </div>
 
       </div>
     )
-  } else {
-    return (
-      <div>
-        <Route path='/login' render={() => <Login/>}/>
-      </div>
-    )
-  }
+
 
 };
 

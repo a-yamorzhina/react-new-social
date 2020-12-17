@@ -14,7 +14,7 @@ const LoginForm = (props) => {
             <span className={s.icon}>
             <img className={s.userIcon} src={miniUser} alt="mini-user"/>
           </span>
-            <Field component={Input} validate={[required]} name={"login"} className={s.input} placeholder='Email or username' type='text'/>
+            <Field component={Input} validate={[required]} name={"email"} className={s.input} placeholder='Email or username' type='text'/>
           </div>
           <div className={s.password}>
             <label></label>
