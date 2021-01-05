@@ -7,8 +7,12 @@ const Header = (props) => {
     <header className={s.header}>
       <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Wikivoyage_Logo_-_White_on_violet.svg/250px-Wikivoyage_Logo_-_White_on_violet.svg.png'/>
         <div className={s.loginBlock}>
-          {props.isAuth ? props.login : <NavLink to={'/login'} className={s.loginLink}>
-            login
+          {props.isAuth ?
+            <div className={s.flexbox}>
+              <span className={s.loginSpan}>{props.login}</span>
+            <button className={s.log} onClick={props.logout}>Log out</button>
+            </div> : <NavLink to={'/login'} className={s.log}>
+            Login
           </NavLink> }
 
         </div>

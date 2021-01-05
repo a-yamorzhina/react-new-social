@@ -9,6 +9,7 @@ const FormControl = ({input, meta, child, ...props}) => {
     <div className={s.formControl + " " + (hasError && s.error)}>
       {props.children}
     </div>
+
   )
 };
 
@@ -25,7 +26,10 @@ export const Textarea = (props) => {
 
 export const Input = (props) => {
   const {input, meta, child, ...restProps} = props;
+  const hasError = meta.touched && meta.error;
   return (
-    <FormControl {...props}> <input {...input} {...restProps}/> </FormControl>
+    <FormControl {...props}>
+      <input {...input} {...restProps}/>
+    </FormControl>
   )
 };
