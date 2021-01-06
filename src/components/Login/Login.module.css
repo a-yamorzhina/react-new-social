@@ -152,3 +152,13 @@
   font-size: 0.9em;
 }
 
+.formSummaryError {
+  font-family: "Nunito Sans", Arial, sans-serif;
+  font-size: 0.9em;
+  padding: 5px;
+  color: red;
+  display: flex;
+  justify-content: center;
+  width: 114%;
+}
+
