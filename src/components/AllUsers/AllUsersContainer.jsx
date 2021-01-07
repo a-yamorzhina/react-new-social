@@ -1,28 +1,32 @@
 import React from "react"
 import {connect} from "react-redux";
 import {
-  follow, followSuccess, getUsers,
+  follow, followSuccess, requestUsers,
   setCurrentPage,
   toggleFollowingProgress, unfollow, unfollowSuccess,
 } from "../../redux/allUsers-reducer";
 import AllUsers from "./AllUsers";
 import Preloader from "../common/Preloader/Preloader";
 import {compose} from "redux";
-import {withAuthRedirect} from "../../hoc/withAuthRedirect";
-
+import {
+  getCurrentPage,
+  getFollowingInProgress,
+  getIsFetching,
+  getPageSize,
+  getTotalUsersCount, getUsers
+} from "../../redux/users-selectors";
 
 
 class AllUsersContainer extends React.Component {
 
   componentDidMount() {
-
     if (this.props.users.length === 0) {
-      this.props.getUsers(this.props.currentPage, this.props.pageSize);
+      this.props.requestUsers(this.props.currentPage, this.props.pageSize);
     }
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.getUsers(pageNumber, this.props.pageSize);
+    this.props.requestUsers(pageNumber, this.props.pageSize);
   };
 
   render() {
@@ -47,21 +51,20 @@ class AllUsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    users: state.allUsersPage.users,
-    pageSize: state.allUsersPage.pageSize,
-    totalUsersCount: state.allUsersPage.totalUsersCount,
-    currentPage: state.allUsersPage.currentPage,
-    isFetching: state.allUsersPage.isFetching,
-    followingInProgress: state.allUsersPage.followingInProgress
+    users: getUsers(state),
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUsersCount(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
+    followingInProgress: getFollowingInProgress(state)
   }
 };
 
-export default  compose(
+export default compose(
   connect(mapStateToProps, {
-    followSuccess, unfollowSuccess, setCurrentPage, toggleFollowingProgress, getUsers,
+    followSuccess, unfollowSuccess, setCurrentPage, toggleFollowingProgress, requestUsers,
     follow, unfollow
   }),
-  // withAuthRedirect,
 )(AllUsersContainer);
 
 
