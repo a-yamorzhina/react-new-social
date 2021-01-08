@@ -3,6 +3,7 @@ import s from "./ProfileInfo.module.css";
 import Preloader from "../../common/Preloader/Preloader";
 import userPhProfile from "../../../../src/assets/images/user-opacity.svg";
 import ProfileStatus from "./ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 
 const ProfileInfo = (props) => {
@@ -22,7 +23,7 @@ const ProfileInfo = (props) => {
           <img src={props.profile.photos.small != null ? props.profile.photos.small : userPhProfile} alt='avatar'
                className={s.avatar}/>
           <h2 className={s.fullName}>{props.profile.fullName}</h2>
-          <ProfileStatus status={props.status} updateStatus={props.updateStatus}> </ProfileStatus>
+          <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}> </ProfileStatusWithHooks>
         </div>
         <div className={s.descriptionBlock}>
           <div className={s.contacts}>
