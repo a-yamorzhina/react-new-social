@@ -3,7 +3,7 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import {NewPostReduxForm} from "./AddPostForm";
 
-const MyPosts = (props) => {
+const MyPosts = React.memo(props => {
 
 
   let postsMas = props.postMessages.map(
@@ -31,7 +31,7 @@ const MyPosts = (props) => {
       </div>
     </div>
   )
-};
+});
 
 export default MyPosts;
 
