@@ -1,0 +1,37 @@
+.page {
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.page:hover {
+  cursor: pointer;
+}
+
+.pagesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.selectedPage {
+  background: rgba(130, 36, 227, 0.1);
+  color: #8224e3;
+  border-radius: 50px;
+  display: inline;
+  font-size: 85%;
+  margin-left: 2px;
+  padding: 0 6px;
+  text-align: center;
+}
+
+.unselectedPage {
+  background: transparent;
+  border: 1px solid #e7edf2;
+  border-radius: 50px;
+  display: inline;
+  font-size: 85%;
+  margin-left: 2px;
+  padding: 0px 6px;
+  text-align: center;
+}

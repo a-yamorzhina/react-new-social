@@ -3,6 +3,10 @@ export const required = value => {
   return "Field is required"
 };
 
+export const unrequired = value => {
+  return value
+};
+
 let maxLength;
 
 export const maxLengthCreator = (maxLength) => (value) => {

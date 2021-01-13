@@ -1,4 +1,5 @@
 import {usersAPI} from "../API/api";
+import {updateObjectsInArray} from "../utils/objects-helpers";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -24,23 +25,13 @@ const allUsersReducer = (state = initialState, action) => {
       case FOLLOW: {
         return {
           ...state,
-          users: state.users.map(u => {
-            if (u.id === action.userId) {
-              return {...u, followed: true}
-            }
-            return u;
-          }),
+          users: updateObjectsInArray(state.users, action.userId, ["id"], {followed: true})
         }
       }
       case UNFOLLOW: {
         return {
           ...state,
-          users: state.users.map(u => {
-            if (u.id === action.userId) {
-              return {...u, followed: false}
-            }
-            return u;
-          }),
+          users: updateObjectsInArray(state.users, action.userId, ["id"], {followed: false})
         }
       }
       case SET_USERS: {
@@ -91,22 +82,21 @@ export const requestUsers = (page, pageSize) => async (dispatch) => {
   dispatch(setCurrentPage(page));
 };
 
-export const follow = (userId) => async (dispatch) => {
+const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {
   dispatch(toggleFollowingProgress(true, userId));
-  let response = await usersAPI.follow(userId);
+  let response = await apiMethod(userId);
   if (response.data.resultCode === 0) {
-    dispatch(followSuccess(userId));
+    dispatch(actionCreator(userId));
   }
   dispatch(toggleFollowingProgress(false, userId));
 };
 
+export const follow = (userId) => async (dispatch) => {
+  await followUnfollowFlow(dispatch, userId, usersAPI.follow.bind(usersAPI), followSuccess);
+};
+
 export const unfollow = (userId) => async (dispatch) => {
-  dispatch(toggleFollowingProgress(true, userId));
-  let response = await usersAPI.unfollow(userId);
-  if (response.data.resultCode === 0) {
-    dispatch(unfollowSuccess(userId));
-  }
-  dispatch(toggleFollowingProgress(false, userId));
+  await followUnfollowFlow(dispatch, userId, usersAPI.unfollow.bind(usersAPI), unfollowSuccess);
 };
 
 export default allUsersReducer;

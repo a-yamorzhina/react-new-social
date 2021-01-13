@@ -13,9 +13,3 @@ ReactDOM.render(
   </BrowserRouter>, document.getElementById("root")
 );
 
-// store.subscribe(() => {
-//   rerenderEntireTree();
-// });
-
-
-// store={store} state={state} dispatch={store.dispatch.bind(store)
