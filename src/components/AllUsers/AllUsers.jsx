@@ -34,13 +34,13 @@ let AllUsers = ({currentPage, totalUsersCount, onPageChanged, pageSize, users, .
             <h3 className={s.h3}>All users</h3>
           </div>
         </div>
-          <Paginator currentPage = {currentPage}
-                     totalItemsCount={totalUsersCount}
-                     onPageChanged={onPageChanged}
-                     pageSize={pageSize}/>
         <main className={s.main}>
           {usersMap()}
         </main>
+        <Paginator currentPage = {currentPage}
+                   totalItemsCount={totalUsersCount}
+                   onPageChanged={onPageChanged}
+                   pageSize={pageSize}/>
       </div>
     )
 };
