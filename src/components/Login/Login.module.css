@@ -150,6 +150,7 @@
   font-family: "Nunito Sans", Arial, sans-serif;
   color: #626c72;
   font-size: 0.9em;
+  display: flex;
 }
 
 .formSummaryError {

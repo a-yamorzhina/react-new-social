@@ -13,20 +13,22 @@ import {
   getFollowingInProgress,
   getIsFetching,
   getPageSize,
-  getTotalUsersCount, getUsers, getUsersSuperSelector
+  getTotalUsersCount, getUsers
 } from "../../redux/users-selectors";
 
 
 class AllUsersContainer extends React.Component {
 
   componentDidMount() {
+    let {currentPage, pageSize } = this.props;
     if (this.props.users.length === 0) {
-      this.props.requestUsers(this.props.currentPage, this.props.pageSize);
+      this.props.requestUsers(currentPage, pageSize);
     }
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.requestUsers(pageNumber, this.props.pageSize);
+    let {pageSize} = this.props;
+    this.props.requestUsers(pageNumber, pageSize);
   };
 
   render() {

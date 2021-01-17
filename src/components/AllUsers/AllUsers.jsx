@@ -2,11 +2,13 @@ import React from "react";
 import s from "./AllUsers.module.css";
 import User from "./User/User";
 import userPh from "../../../src/assets/images/user.svg"
+import Paginator from "../common/Paginator/Paginator";
 
-let AllUsers = (props) => {
+
+let AllUsers = ({currentPage, totalUsersCount, onPageChanged, pageSize, users, ...props}) => {
 
  let usersMap = () => {
-    return props.users.map(
+    return users.map(
       u => <User
         key={u.id}
         follow={props.follow}
@@ -25,15 +27,6 @@ let AllUsers = (props) => {
       />);
   };
 
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-
-    let pages = [];
-
-    for (let i = 1; i <= pagesCount; i++) {
-      pages.push(i);
-    }
-    // debugger;
-
     return (
       <div>
         <div className={s.firstWrap}>
@@ -41,16 +34,13 @@ let AllUsers = (props) => {
             <h3 className={s.h3}>All users</h3>
           </div>
         </div>
-        <div className={s.pagesContainer}>
-          {pages.map(p => {
-            return <span onClick={(e) => {props.onPageChanged(p)}}
-                         key={p}
-                         className={s.page + ' ' + (props.currentPage === p ? s.selectedPage : s.unselectedPage)}>{p}</span>
-          })}
-        </div>
         <main className={s.main}>
           {usersMap()}
         </main>
+        <Paginator currentPage = {currentPage}
+                   totalItemsCount={totalUsersCount}
+                   onPageChanged={onPageChanged}
+                   pageSize={pageSize}/>
       </div>
     )
 };
