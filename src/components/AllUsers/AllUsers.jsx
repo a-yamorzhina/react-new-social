@@ -4,6 +4,7 @@ import User from "./User/User";
 import userPh from "../../../src/assets/images/user.svg"
 import Paginator from "../common/Paginator/Paginator";
 
+
 let AllUsers = ({currentPage, totalUsersCount, onPageChanged, pageSize, users, ...props}) => {
 
  let usersMap = () => {
@@ -34,7 +35,7 @@ let AllUsers = ({currentPage, totalUsersCount, onPageChanged, pageSize, users, .
           </div>
         </div>
           <Paginator currentPage = {currentPage}
-                     totalUsersCount={totalUsersCount}
+                     totalItemsCount={totalUsersCount}
                      onPageChanged={onPageChanged}
                      pageSize={pageSize}/>
         <main className={s.main}>
