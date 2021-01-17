@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import s from "./Paginator.module.css";
+import arrow from "../../../assets/images/left-arrow.svg";
 
 const Paginator = ({totalItemsCount, pageSize, onPageChanged, currentPage, portionSize = 10}) => {
 
@@ -18,7 +19,9 @@ const Paginator = ({totalItemsCount, pageSize, onPageChanged, currentPage, porti
     return (
       <div className={s.pagesContainer}>
         {portionNumber > 1 &&
-        <button onClick={() =>  {setPortionNumber(portionNumber - 1) }}>PREV</button>}
+        <button className={s.paginatorButton} onClick={() =>  {setPortionNumber(portionNumber - 1) }}>
+          <img src={arrow} style={{width: '16px'}} />
+        </button>}
 
           {pages
             .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
@@ -29,7 +32,9 @@ const Paginator = ({totalItemsCount, pageSize, onPageChanged, currentPage, porti
           })}
 
         {portionCount > portionNumber &&
-        <button onClick={() =>  {setPortionNumber(portionNumber + 1) }}>NEXT</button>}
+        <button className={s.paginatorButton} onClick={() =>  {setPortionNumber(portionNumber + 1) }}>
+          <img src={arrow} style={{width: '16px',  transform: 'scaleX(-1)'}} />
+        </button>}
       </div>
     )
 };
