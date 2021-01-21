@@ -1,3 +1,22 @@
+.src-components-common-FormsControls-FormsConttrols-module__formControl--1nMKh {
+
+}
+
+.src-components-common-FormsControls-FormsConttrols-module__formControl--1nMKh.src-components-common-FormsControls-FormsConttrols-module__error--IHRiO input,
+.src-components-common-FormsControls-FormsConttrols-module__formControl--1nMKh.src-components-common-FormsControls-FormsConttrols-module__error--IHRiO textarea {
+  border-color: red;
+}
+
+.src-components-common-FormsControls-FormsConttrols-module__formControl--1nMKh.src-components-common-FormsControls-FormsConttrols-module__error--IHRiO span {
+  display: block;
+  margin-bottom: 20px;
+  margin-left: 2px;
+  color: red;
+  font: 400 13.3333px Arial;
+}
+
+
+
 .src-components-Login-Login-module__overlay--3Yl3B {
   background-color: #383C46;
   height: 100vh;
@@ -162,24 +181,5 @@
   justify-content: center;
   width: 114%;
 }
-
-
-.src-components-common-FormsControls-FormsConttrols-module__formControl--1nMKh {
-
-}
-
-.src-components-common-FormsControls-FormsConttrols-module__formControl--1nMKh.src-components-common-FormsControls-FormsConttrols-module__error--IHRiO input,
-.src-components-common-FormsControls-FormsConttrols-module__formControl--1nMKh.src-components-common-FormsControls-FormsConttrols-module__error--IHRiO textarea {
-  border-color: red;
-}
-
-.src-components-common-FormsControls-FormsConttrols-module__formControl--1nMKh.src-components-common-FormsControls-FormsConttrols-module__error--IHRiO span {
-  display: block;
-  margin-bottom: 20px;
-  margin-left: 2px;
-  color: red;
-  font: 400 13.3333px Arial;
-}
-
 
 
