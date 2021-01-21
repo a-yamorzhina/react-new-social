@@ -1,0 +1,185 @@
+.src-components-Login-Login-module__overlay--3Yl3B {
+  background-color: #383C46;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.src-components-Login-Login-module__loginBlock--3fGau {
+  width: 430px;
+  height: 440px;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: .3rem;
+  outline: 0;
+  align-self: center;
+  align-items: center;
+}
+
+.src-components-Login-Login-module__avatarGuest--3P5xt {
+  width: 80px;
+  height: 80px;
+}
+
+.src-components-Login-Login-module__title--LllEd {
+  color: #4f515b;
+  font-size: 1.359em;
+  font-weight: 700;
+  font-family: "Quicksand", Verdana, sans-serif;
+}
+
+.src-components-Login-Login-module__form--3o8Na {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 60%;
+}
+
+.src-components-Login-Login-module__userName--3xa3z,
+.src-components-Login-Login-module__password--2CQ2Z {
+  margin-bottom: .5rem;
+}
+
+.src-components-Login-Login-module__input--1-WVL {
+  width: 100%;
+  background-color: #f7f7f7;
+  height: 2.5rem;
+  border: 1px solid transparent;
+  color: #626c72;
+  padding-left: calc(2.125rem + 10px);
+  border-radius: 50px;
+  outline: none;
+}
+
+.src-components-Login-Login-module__icon--2k-Up {
+  background: #fff;
+  display: block;
+  width: calc(2.5rem - 4px);
+  height: calc(2.5rem - 4px);
+  border-radius: 50%;
+  text-align: center;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  z-index: 1;
+}
+
+.src-components-Login-Login-module__userIcon--13hvw,
+.src-components-Login-Login-module__passwordIcon--1bnT3 {
+  width: 14px;
+  margin-top: 29%;
+}
+
+.src-components-Login-Login-module__iconPassword--3k-2w {
+  background: #fff;
+  display: block;
+  width: calc(2.5rem - 4px);
+  height: calc(2.5rem - 4px);
+  border-radius: 50%;
+  text-align: center;
+  position: absolute;
+  top: 56px;
+  left: 4px;
+  z-index: 1;
+}
+
+.src-components-Login-Login-module__submit--1VVNM {
+  width: 120%;
+  background-image: linear-gradient(90deg, #8224e3 0, #a968ec 50%, #8224e3 100%);
+  background-size: 200%;
+  box-shadow: 0 1px 2px 0 rgba(130, 36, 227, 0.5);
+  color: #fff;
+  border: none;
+  min-height: 2.5rem;
+  border-radius: 30px;
+  text-align: center;
+  font-weight: normal;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  margin-top: 0.67em;
+}
+
+.src-components-Login-Login-module__submit--1VVNM:hover {
+  box-shadow: 0 1px 3px 0 rgba(130, 36, 227, 0.5);
+  color: #fff;
+  background-position: right center;
+  transition: all 750ms ease;
+}
+
+.src-components-Login-Login-module__rememberMe--2CX0g {
+  margin: 0.67em 0;
+}
+
+.src-components-Login-Login-module__elementRememberMe--EX5v4 {
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-top: -2px;
+  appearance: none;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: transparent;
+  border: 1px solid #dedede;
+  color: #5561e2;
+  cursor: pointer;
+  display: inline-block !important;
+  margin-right: 0.375rem;
+  outline: none;
+  z-index: 1000;
+  transition: all 0.15s ease-out 0s;
+  color: #626c72;
+}
+
+.src-components-Login-Login-module__elementRememberMe--EX5v4:checked {
+  background-color: #8224e3;
+  border: none;
+}
+
+.src-components-Login-Login-module__rememberText--1bQTg {
+  font-family: "Nunito Sans", Arial, sans-serif;
+  color: #626c72;
+  font-size: 0.9em;
+  display: flex;
+}
+
+.src-components-Login-Login-module__formSummaryError--2flue {
+  font-family: "Nunito Sans", Arial, sans-serif;
+  font-size: 0.9em;
+  padding: 5px;
+  color: red;
+  display: flex;
+  justify-content: center;
+  width: 114%;
+}
+
+
+.src-components-common-FormsControls-FormsConttrols-module__formControl--1nMKh {
+
+}
+
+.src-components-common-FormsControls-FormsConttrols-module__formControl--1nMKh.src-components-common-FormsControls-FormsConttrols-module__error--IHRiO input,
+.src-components-common-FormsControls-FormsConttrols-module__formControl--1nMKh.src-components-common-FormsControls-FormsConttrols-module__error--IHRiO textarea {
+  border-color: red;
+}
+
+.src-components-common-FormsControls-FormsConttrols-module__formControl--1nMKh.src-components-common-FormsControls-FormsConttrols-module__error--IHRiO span {
+  display: block;
+  margin-bottom: 20px;
+  margin-left: 2px;
+  color: red;
+  font: 400 13.3333px Arial;
+}
+
+
+
