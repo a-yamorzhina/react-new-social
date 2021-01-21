@@ -1,2 +1,0 @@
-# react-new-social
-hello
