@@ -8,6 +8,7 @@
   grid-template-columns: 2fr 10fr;
   /*одна колонка занимает 2 фракции, вторая десять*/
   font-family: "Nunito Sans", Arial, sans-serif;
+  background: #a968ec;
 }
 
 .app-wrapper-content {
