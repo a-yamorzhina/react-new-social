@@ -7,13 +7,9 @@ const webpack = require('webpack');
 module.exports = {
   entry: "./src/index.js",
   output: {
-    // path: path.resolve(__dirname, "/test"),
     filename: "index-bundle.js",
-    // publicPath: '/',
-    // filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
-    // publicPath: path.resolve(__dirname, 'build')
-    publicPath: 'https://a-yamorzhina.github.io/react-new-social'
+    // publicPath: 'https://a-yamorzhina.github.io/react-new-social'
   },
   devServer: {
     contentBase: path.join(__dirname, 'build'),
