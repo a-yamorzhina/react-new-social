@@ -46,16 +46,6 @@
   margin-bottom: .5rem;
 }
 
-.input {
-  width: 100%;
-  background-color: #f7f7f7;
-  height: 2.5rem;
-  border: 1px solid transparent;
-  color: #626c72;
-  padding-left: calc(2.125rem + 10px);
-  border-radius: 50px;
-  outline: none;
-}
 
 .icon {
   background: #fff;
@@ -89,6 +79,29 @@
   z-index: 1;
 }
 
+
+.rememberMe {
+  margin: 0.67em 0;
+}
+
+
+.rememberText {
+  font-family: "Nunito Sans", Arial, sans-serif;
+  color: #626c72;
+  font-size: 0.9em;
+  display: flex;
+}
+
+.formSummaryError {
+  font-family: "Nunito Sans", Arial, sans-serif;
+  font-size: 0.9em;
+  padding: 5px;
+  color: red;
+  display: flex;
+  justify-content: center;
+  width: 114%;
+}
+
 .submit {
   width: 120%;
   background-image: linear-gradient(90deg, #8224e3 0, #a968ec 50%, #8224e3 100%);
@@ -112,54 +125,5 @@
   color: #fff;
   background-position: right center;
   transition: all 750ms ease;
-}
-
-.rememberMe {
-  margin: 0.67em 0;
-}
-
-.elementRememberMe {
-  border-radius: 4px;
-  vertical-align: middle;
-  margin-top: -2px;
-  appearance: none;
-  position: relative;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 18px;
-  width: 18px;
-  background-color: transparent;
-  border: 1px solid #dedede;
-  color: #5561e2;
-  cursor: pointer;
-  display: inline-block !important;
-  margin-right: 0.375rem;
-  outline: none;
-  z-index: 1000;
-  transition: all 0.15s ease-out 0s;
-  color: #626c72;
-}
-
-.elementRememberMe:checked {
-  background-color: #8224e3;
-  border: none;
-}
-
-.rememberText {
-  font-family: "Nunito Sans", Arial, sans-serif;
-  color: #626c72;
-  font-size: 0.9em;
-  display: flex;
-}
-
-.formSummaryError {
-  font-family: "Nunito Sans", Arial, sans-serif;
-  font-size: 0.9em;
-  padding: 5px;
-  color: red;
-  display: flex;
-  justify-content: center;
-  width: 114%;
 }
 

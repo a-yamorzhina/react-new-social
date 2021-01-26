@@ -4,7 +4,7 @@ export const required = value => {
 };
 
 export const unrequired = value => {
-  return value
+  return null;
 };
 
 let maxLength;

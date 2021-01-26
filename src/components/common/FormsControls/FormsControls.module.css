@@ -1,0 +1,59 @@
+.formControl {
+
+}
+
+.formControl.error input,
+.formControl.error textarea {
+  border-color: red;
+}
+
+.formControl.error span {
+  display: block;
+  margin-bottom: 20px;
+  margin-left: 2px;
+  color: red;
+  font: 400 13.3333px Arial;
+}
+
+.input {
+  width: 100%;
+  background-color: #f7f7f7;
+  height: 2.5rem;
+  border: 1px solid transparent;
+  color: #626c72;
+  padding-left: calc(2.125rem + 10px);
+  border-radius: 50px;
+  outline: none;
+}
+
+.elementRememberMe {
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-top: -2px;
+  appearance: none;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: transparent;
+  border: 1px solid #dedede;
+  color: #5561e2;
+  cursor: pointer;
+  display: inline-block !important;
+  margin-right: 0.375rem;
+  outline: none;
+  z-index: 1000;
+  transition: all 0.15s ease-out 0s;
+  color: #626c72;
+}
+
+.elementRememberMe:checked {
+  background-color: #8224e3;
+  border: none;
+}
+
+
+
+
