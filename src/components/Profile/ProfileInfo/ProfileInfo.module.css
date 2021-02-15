@@ -1,15 +1,40 @@
 .profileInfo {
-  position: relative;
+  /*position: relative;*/
 }
 
 .descriptionBlockContainer {
-  display: flex;
-  justify-content: space-around;
+  margin-top: 40px;
 }
 
 
 .descriptionBlock {
-  padding: 20px;
+  /*padding: 20px;*/
+  /*display: flex;*/
+  /*flex-direction: column;*/
+}
+
+.buttonLink {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 90%;
+  color: #bbbbdc;
+}
+
+.editIcon {
+  width: 12px;
+  margin-right: 6px;
+}
+
+.buttonLink:hover {
+  box-shadow: 0px 3px 0px -2px rgba(187, 187, 220, 1);
+}
+
+.wrapper {
+  display: flex;
+}
+
+.imgWrapper {
   display: flex;
   flex-direction: column;
 }
@@ -22,7 +47,7 @@
 }
 
 .img:after {
-  content:'';
+  content: '';
   top: 0;
   left: 0;
   z-index: 10;
@@ -35,28 +60,41 @@
 }
 
 
-.nameMe{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  left: 7%;
-  top: 45%;
-  position: absolute;
-  z-index: 555;
+.nameMe {
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*text-align: center;*/
+  /*left: 7%;*/
+  /*top: 45%;*/
+  /*position: absolute;*/
+  /*z-index: 555;*/
 }
 
 .fullName {
   font-size: 20px;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-weight: 700;
   color: #4f515b;
-  margin: 0;
+}
+
+.title {
+  font-family: "Nunito Sans", Arial, sans-serif;
+  font-size: 14px;
+  color: #626c72;
+}
+
+.contactsTitle {
+  display: block;
+  margin-bottom: 10px;
 }
 
 .avatar {
   border: solid 2px #FFF;
-  background: rgba( 255, 255, 255, 0.8 );
+  background: rgba(255, 255, 255, 0.8);
   margin-bottom: .75rem;
   border-radius: 1rem;
   width: 200px;
@@ -111,7 +149,6 @@
   width: 100%;
   max-width: 200px;
   overflow: hidden;
-  text-align: center;
   font-size: 90%;
   color: #bbbbdc;
 }
@@ -123,8 +160,8 @@
   border-width: 1px;
   border-style: solid;
   border-color: #8324e2;
-  box-shadow: 0px 0px 5px 0px rgba(219,219,219,.75);
-  text-shadow: 0px 0px 0px rgba(42,42,42,.75);
+  box-shadow: 0px 0px 5px 0px rgba(219, 219, 219, .75);
+  text-shadow: 0px 0px 0px rgba(42, 42, 42, .75);
   outline: none;
 }
 
