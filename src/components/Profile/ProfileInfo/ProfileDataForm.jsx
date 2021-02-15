@@ -1,11 +1,12 @@
 import React from "react";
-import s from "./ProfileInfo.module.css";
 import {createField, Input, Textarea} from "../../common/FormsControls/FormsControls";
 import {required, unrequired} from "../../../utils/validators/validators";
 import {reduxForm} from "redux-form";
+import s from '../Profile.module.css'
 
 
-const ProfileDataForm = (handleSubmit) => {
+
+const ProfileDataForm = ({handleSubmit, profile, error}) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>Full name:
@@ -20,9 +21,19 @@ const ProfileDataForm = (handleSubmit) => {
       <div>About me:
         {createField('About me', 'aboutMe', unrequired, Textarea, 'input', 'input')}</div>
 
-      {/*<div className={s.contacts}>Contacts: {Object.keys(props.profile.contacts).map(key => {*/}
-      {/*  return <Contact key={key} contactTitle={key} contactValue={props.profile.contacts[key]}/>*/}
-      {/*})}</div>*/}
+      <div>Contacts:
+        {Object.keys(profile.contacts).map(key => {
+        return <div key={key}> {key}:
+          {createField(key, 'contacts.' +  key, [], Input, [], 'input')}
+          </div>
+      })}</div>
+
+      {error &&
+      <div className={s.formSummaryError}>
+        {error}
+      </div>
+      }
+
       <button>Save</button>
     </form>)
 };

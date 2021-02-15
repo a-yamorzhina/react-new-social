@@ -23,25 +23,27 @@ const ProfileInfo = ({profile, updateStatus, status, saveProfile, ...props}) => 
 
   const onSubmit = (formData) => {
     saveProfile(formData)
+      .then(() => {
+      setEditMode(false);
+    })
   };
 
   return (
     <div className={s.wrapper}>
       <div className={s.imgWrapper}>
         <img src={profile.photos.large || userPhProfile} alt='avatar'
-                className={s.avatar}/>
+             className={s.avatar}/>
         {props.isOwner && <input type={'file'} onChange={onMainPhotoSelected}/>}
       </div>
 
       <div className={s.userInfo}>
 
-        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}> </ProfileStatusWithHooks>
+        <ProfileStatusWithHooks status={status} updateStatus={updateStatus}> </ProfileStatusWithHooks>
 
         <div className={s.descriptionBlockContainer}>
-          {editMode ? <ProfileDataFormReduxForm onSubmit={onSubmit}/> :
-            <ProfileData profile={profile} isOwner={props.isOwner} goToEditMode={() => {
-              setEditMode(true)
-            }}/>
+          {editMode
+            ? <ProfileDataFormReduxForm  initialValues={profile} onSubmit={onSubmit} profile={profile}/>
+            : <ProfileData profile={profile} isOwner={props.isOwner} goToEditMode={() => {setEditMode(true)}}/>
           }
         </div>
 
@@ -54,10 +56,12 @@ const ProfileInfo = ({profile, updateStatus, status, saveProfile, ...props}) => 
 const ProfileData = (props) => {
   return (
     <>
-      {props.isOwner ? <button onClick={props.goToEditMode} className={s.buttonLink}>
-        <img className={s.editIcon} src={edit}/>
-        Edit personal information
-      </button> : null}
+      {props.isOwner
+        ? <button onClick={props.goToEditMode} className={s.buttonLink}>
+          <img className={s.editIcon} src={edit}/>
+          Edit personal information
+        </button>
+        : null}
       <div className={s.nameMe}>
         <h2 className={s.fullName}>{props.profile.fullName}</h2>
       </div>
@@ -67,7 +71,8 @@ const ProfileData = (props) => {
         <p className={s.title}>My professional
           skills: {props.profile.lookingForAJobDescription}</p>}
         <p className={s.title}>About me: {props.profile.aboutMe}</p>
-        <div className={s.title}> <span className={s.contactsTitle}>Contacts:</span> {Object.keys(props.profile.contacts).map(key => {
+        <div className={s.title}><span
+          className={s.contactsTitle}>Contacts:</span> {Object.keys(props.profile.contacts).map(key => {
           return <Contact key={key} contactTitle={key} contactValue={props.profile.contacts[key]}/>
         })}</div>
       </div>
