@@ -12,7 +12,7 @@ import {Redirect} from "react-router-dom";
 const Login = (props) => {
 
   const onSubmit = (formData) => {
-   props.login(formData.email, formData.password, formData.rememberMe)
+   props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
   };
 
   if (props.isAuth) {
@@ -24,13 +24,14 @@ const Login = (props) => {
       <div className={s.loginBlock}>
         <img className={s.avatarGuest} alt='avatar-guest' src={avatar}/>
         <h1 className={s.title}>Log into your account</h1>
-        <LoginReduxForm onSubmit={onSubmit}/>
+        <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
       </div>
     </div>
   )
 };
 
 const mapStateToProps = (state) => ({
+  captchaUrl: state.auth.captchaUrl,
   isAuth: state.auth.isAuth,
 });
 

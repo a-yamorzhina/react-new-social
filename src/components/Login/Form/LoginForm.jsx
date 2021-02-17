@@ -7,7 +7,7 @@ import {required, unrequired} from "../../../utils/validators/validators";
 import {createField, Input} from "../../common/FormsControls/FormsControls";
 
 
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({handleSubmit, error, captchaUrl}) => {
   return (
     <form onSubmit={handleSubmit} className={s.form}>
       <div className={s.userName}>
@@ -30,6 +30,10 @@ const LoginForm = ({handleSubmit, error}) => {
           <span>Remember me</span>
         </label>
       </div>
+
+      {captchaUrl && <img src={captchaUrl}/>}
+      {captchaUrl && createField('Image symbols', 'captcha', required, Input, [], 'input')}
+
       {error &&
       <div className={s.formSummaryError}>
         {error}

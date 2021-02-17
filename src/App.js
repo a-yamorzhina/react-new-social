@@ -58,6 +58,7 @@ class App extends React.Component {
               <Login/>
             </Suspense>
           }}/>
+          <Route path='*' render={() => <div> 404 Not found </div>}/>
         </div>
 
       </div>
