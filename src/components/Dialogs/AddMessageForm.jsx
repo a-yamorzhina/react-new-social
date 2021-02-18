@@ -17,7 +17,7 @@ const AddMessageForm = (props) => {
         </Field>
     <button className={s.mainButton}>Send</button>
   </form>
-  )}
+  )};
 
-export const AddMessageFormRedux = reduxForm ({form:'dialog-add-message-form'})(AddMessageForm)
+export const AddMessageFormRedux = reduxForm ({form:'dialog-add-message-form'})(AddMessageForm);
 
