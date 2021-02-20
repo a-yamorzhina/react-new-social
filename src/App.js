@@ -23,18 +23,19 @@ const Login = React.lazy(() => import('./components/Login/Login'));
 
 class App extends React.Component {
 
-  catchAllUnhandledErrors = (promiseRejectionEvent) => {
-    alert('some error occurred')
-  };
+  catchAllUnhandledErrors (reason) {
+   console.warn(reason.reason)
+  }
 
   componentDidMount() {
     this.props.initializeApp();
-    window.addEventListener('unhandlerejection', this.catchAllUnhandledErrors);
+    window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('unhandlerejection', this.catchAllUnhandledErrors);
+    window.removeEventListener('unhandledrejection', this.catchAllUnhandledErrors);
   }
+
 
   render() {
 
@@ -44,14 +45,57 @@ class App extends React.Component {
       return <Preloader/>
     }
 
+    if (this.props.globalError) {
+      return (
+        <>
+          <div className="error">
+            <p>{this.props.globalError}</p>
+          </div>
+          <div className="appWrapper" id='div'>
+
+
+            <HeaderContainer/>
+
+            <NavbarContainer/>
+
+            <div className="app-wrapper-content">
+              <Route exact path='/'>
+                <Redirect to='/profile'/>
+              </Route>
+              <Route path='/profile/:userId?' render={withSuspense(ProfileContainer)}/>
+              <Route path='/dialogs' render={withSuspense(DialogsContainer)}/>
+              <Route path='/news' render={() => <News/>}/>
+              <Route path='/music' render={() => <Music/>}/>
+              <Route path='/settings' render={() => <Settings/>}/>
+              <Route path='/users' render={() => <AllUsersContainer/>}/>
+              <Route path='/friends' render={() => <Friends/>}/>
+              <Route path='/login' render={() => {
+                return <Suspense fallback={<Preloader/>}>
+                  <Login/>
+                </Suspense>
+              }}/>
+              <Route path='*' render={() => <div> 404 Not found </div>}/>
+            </div>
+
+          </div>
+        </>
+      )
+    }
+
     return (
+
       <div className="appWrapper" id='div'>
+
+        {/*<button onClick={()=> {*/}
+        {/*  this.props.globalErrorOccurredThunk('newText')*/}
+        {/*}}>press the button</button>*/}
 
         <HeaderContainer/>
 
         <NavbarContainer/>
 
         <div className="app-wrapper-content">
+          {/*<Route path='*' render={() => <div> 404 Not found </div>}/>*/}
           <Route exact path='/'>
             <Redirect to='/profile'/>
           </Route>
@@ -67,7 +111,6 @@ class App extends React.Component {
               <Login/>
             </Suspense>
           }}/>
-          <Route path='*' render={() => <div> 404 Not found </div>}/>
         </div>
 
       </div>
@@ -78,7 +121,8 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  initialized: state.app.initialized
+  initialized: state.app.initialized,
+  globalError: state.app.globalError
 });
 
 export default compose(
