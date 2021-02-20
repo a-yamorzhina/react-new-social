@@ -1,5 +1,6 @@
 import {profileAPI, usersAPI} from "../API/api";
 import {stopSubmit} from "redux-form";
+import {globalErrorOccurredThunk} from "./app-reducer";
 
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
@@ -101,8 +102,12 @@ export const getStatus = (userId) => async (dispatch) => {
 
 export const updateStatus = (status) => async (dispatch) => {
   let response = await profileAPI.updateStatus(status);
+
   if (response.data.resultCode === 0) {
     dispatch(setStatus(status));
+  } else {
+    // throw response.data.messages[0]
+    dispatch(globalErrorOccurredThunk(response.data.messages[0]))
   }
 };
 
@@ -121,7 +126,7 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
     dispatch(getProfile(userId));
   } else {
     let message = response.data.messages.length > 0 ? response.data.messages[0] : "Some error";
-    dispatch(stopSubmit('edit-profile', {_error: message }));
+    dispatch(stopSubmit('edit-profile', {_error: message}));
     return Promise.reject(message);
   }
 };

@@ -45,11 +45,11 @@ export const getCaptchaUrlSuccess = (captchaUrl) => {
 };
 
 export const getAuthUserData = () => async (dispatch) => {
-  const data = await authAPI.auth();
-  if (data.resultCode === 0) {
-    let {email, id, login} = data.data;
-    dispatch(setAuthUserDataAC(id, email, login, true));
-  }
+    const data = await authAPI.auth();
+    if (data.resultCode === 0) {
+      let {email, id, login} = data.data;
+      dispatch(setAuthUserDataAC(id, email, login, true));
+    }
 };
 
 export const login = (email, password, rememberMe, captcha) => async (dispatch) => {
