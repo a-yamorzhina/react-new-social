@@ -1,6 +1,6 @@
 import {profileAPI, usersAPI} from "../API/api";
 import {stopSubmit} from "redux-form";
-import {globalErrorOccurredThunk} from "./app-reducer";
+import {globalErrorOccurredThunk} from "./app-reducer.ts";
 
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
