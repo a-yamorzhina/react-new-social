@@ -21,6 +21,21 @@
   display: none;
 }
 
+.error {
+  width: 300px;
+  height: 150px;
+  background-color: #373b45;
+  color: white;
+  position: absolute;
+  left: 40%;
+  bottom: 60%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 4px 0px rgb(34 60 80 / 20%);
+}
+
 
 
 
@@ -402,4 +417,6 @@ ul.src-components-AllUsers-AllUsers-module__connections--3iGfX li p {
 .src-components-Header-Header-module__flexbox--BE_-z {
   display: flex;
 }
+
+
 
