@@ -3,7 +3,7 @@ import s from "./Login.module.css";
 import avatar from "../../assets/images/user-guest.svg"
 import LoginReduxForm from "./Form/LoginForm";
 import {connect} from "react-redux";
-import {login} from "../../redux/auth-reducer";
+import {login} from "../../redux/auth-reducer.ts";
 import {Redirect} from "react-router-dom";
 
 

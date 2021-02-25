@@ -19,7 +19,7 @@ module.exports = {
     historyApiFallback: true,
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', 'tsx'],
   },
   module: {
     rules: [
@@ -38,6 +38,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: ["babel-loader"]
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
       // {
       //   test: /\.css$/,
