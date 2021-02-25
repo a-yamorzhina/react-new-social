@@ -4,26 +4,18 @@ import {stopSubmit} from "redux-form";
 const SET_USER_DATA = 'samurai-network/auth/SET-USER-DATA';
 const GET_CAPTCHA_URL_SUCCESS = 'samurai-network/auth/GET-CAPTCHA-URL-SUCCESS';
 
-export type InitialStateType = {
-  userId: number | null,
-  email: string | null,
-  login: string | null,
-  isFetching: boolean,
-  //isFetching загрузка идет/не идет
-  isAuth: boolean,
-  captchaUrl: string | null
-}
 
-let initialState: InitialStateType = {
-  userId: null,
-  email: null,
-  login: null,
+let initialState = {
+  userId: null as number | null,
+  email: null as string | null,
+  login: null as string | null,
   isFetching: false,
   //isFetching загрузка идет/не идет
   isAuth: false,
-  captchaUrl: null
+  captchaUrl: null as string | null
 };
 
+export type InitialStateType = typeof initialState;
 
 const authReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {

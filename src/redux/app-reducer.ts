@@ -1,5 +1,5 @@
 import {getAuthUserData} from "./auth-reducer";
-import {resolveAny} from "dns";
+
 
 const INITIALIZED_SUCCESS = 'INITIALIZED-SUCCESS';
 const GLOBAL_ERROR_OCCURRED = 'GLOBAL-ERROR-OCCURRED';

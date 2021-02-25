@@ -1,3 +1,15 @@
+type LinkType = {
+  id: number
+  route: string
+  name: string
+}
+
+type FriendType = {
+  id: number
+  name: string
+  src: string
+}
+
 let initialState = {
   nav: [
     {id: 1, route: "/profile", name: "Profile"},
@@ -7,8 +19,7 @@ let initialState = {
     {id: 5, route: "/settings", name: "Settings"},
     {id: 6, route: "/users", name: "All users"},
     {id: 7, route: "/friends", name: "Friends"},
-
-  ],
+  ] as Array<LinkType>,
   friendsBlock: [
     {
       id: 1,
@@ -30,11 +41,11 @@ let initialState = {
       name: "Samantha",
       src: "https://transcoder.plex.tv/photo?height=256&minSize=1&upscale=1&width=256&url=https%3A%2F%2Fmetadata-static.plex.tv%2Fpeople%2F5d77682654c0f0001f301d69.jpg"
     },
-  ]
+  ] as Array<FriendType>
 };
 
 
-const sidebarReducer = (state = initialState, action) => {
+const sidebarReducer = (state = initialState, action:any) => {
 
   return state;
 };
