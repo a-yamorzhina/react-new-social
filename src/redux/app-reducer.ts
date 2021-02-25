@@ -1,4 +1,5 @@
 import {getAuthUserData} from "./auth-reducer";
+import {resolveAny} from "dns";
 
 const INITIALIZED_SUCCESS = 'INITIALIZED-SUCCESS';
 const GLOBAL_ERROR_OCCURRED = 'GLOBAL-ERROR-OCCURRED';
@@ -51,7 +52,7 @@ export const initializeApp = () => (dispatch:any) => {
   })
 };
 
-export const globalErrorOccurredThunk = (error:string) => (dispatch:any) => {
+export const globalErrorOccurredThunk = (error:any | null) => (dispatch:any) => {
   dispatch(globalErrorOccurred(error));
   setTimeout(() => {
     dispatch(globalErrorOccurred(null))

@@ -6,7 +6,6 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: "./src/index.js",
-  devtool: 'inline-source-map',
   output: {
     filename: "index-bundle.js",
     path: path.resolve(__dirname, 'build'),
@@ -20,7 +19,7 @@ module.exports = {
     historyApiFallback: true,
   },
   resolve: {
-    extensions: ['.tsx', '.ts','.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', 'tsx'],
   },
   module: {
     rules: [
@@ -39,6 +38,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: ["babel-loader"]
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
       // {
       //   test: /\.css$/,
@@ -65,11 +69,6 @@ module.exports = {
         use: [
           'file-loader',
         ],
-      },
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
       },
     ]},
     plugins: [
