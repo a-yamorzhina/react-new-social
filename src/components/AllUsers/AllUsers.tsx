@@ -1,10 +1,13 @@
 import React from "react";
+// @ts-ignore
 import s from "./AllUsers.module.css";
 import User from "./User/User";
+// @ts-ignore
 import userPh from "../../../src/assets/images/user.svg"
-import Paginator from "../common/Paginator/Paginator.";
+// @ts-ignore
+import Paginator from "../common/Paginator/Paginator";
 import {UserType} from "../../types/types";
-import {ToggleFollowingProgressType} from "../../redux/allUsers-reducer";
+
 
 type PropsType = {
   totalUsersCount: number
@@ -13,9 +16,8 @@ type PropsType = {
   currentPage: number
   users: Array<UserType>
   followingInProgress: Array<number>
-  unfollow: () => void
-  follow: () => void
-  toggleFollowingProgress: ToggleFollowingProgressType
+  unfollow: (userID:number) => void
+  follow: (userID:number) => void
 
 }
 
@@ -29,7 +31,6 @@ let AllUsers: React.FC<PropsType> = ({currentPage, totalUsersCount, onPageChange
         follow={props.follow}
         unfollow={props.unfollow}
         followOrNot={u.followed}
-        toggleFollowingProgress={props.toggleFollowingProgress}
         followingInProgress={props.followingInProgress}
         id={u.id}
         name={u.name}

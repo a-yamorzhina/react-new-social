@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+// @ts-ignore
 import s from "./Paginator.module.css";
 // @ts-ignore
 import arrow from "../../../assets/images/left-arrow.svg";
@@ -21,7 +22,9 @@ const Paginator: React.FC<PropsType> = ({totalItemsCount, pageSize, onPageChange
     }
 
     let portionCount = Math.ceil(pagesCount / pageSize);
-    let [portionNumber, setPortionNumber] = useState(1);
+    let [portionNumber, setPortionNumber] = useState<number>(1);
+    // if (portionNumber === null) portionNumber = 1;
+
     let leftPortionPageNumber = (portionNumber - 1) * portionSize +1;
     let rightPortionPageNumber = portionNumber * portionSize;
 

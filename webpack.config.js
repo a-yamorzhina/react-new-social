@@ -14,12 +14,12 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'build'),
     compress: true,
-    port: 3000,
+    port: 3001,
     hot: true,
     historyApiFallback: true,
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', 'tsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   module: {
     rules: [
@@ -44,6 +44,7 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+
       // {
       //   test: /\.css$/,
       //   use: ["style-loader", "css-loader"]

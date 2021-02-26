@@ -6,7 +6,6 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
-import AllUsersContainer from "./components/AllUsers/AllUsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import {connect} from "react-redux";
 import {compose} from "redux";
@@ -14,6 +13,7 @@ import {withRouter} from "react-router";
 import {initializeApp} from "./redux/app-reducer.ts";
 import Preloader from "./components/common/Preloader/Preloader";
 import {withSuspense} from "./hoc/withSuspense";
+import AllUsersContainer from "./components/AllUsers/AllUsersContainer";
 
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
