@@ -93,7 +93,7 @@ type ToggleIsFetchingType = {
   isFetching: boolean
 }
 
-type ToggleFollowingProgressType = {
+export type ToggleFollowingProgressType = {
   type: typeof TOGGLE_IS_FOLLOWING_PROGRESS,
   isFetching: boolean,
   userId: number

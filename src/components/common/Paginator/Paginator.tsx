@@ -1,11 +1,20 @@
 import React, {useState} from "react";
 import s from "./Paginator.module.css";
+// @ts-ignore
 import arrow from "../../../assets/images/left-arrow.svg";
 
-const Paginator = ({totalItemsCount, pageSize, onPageChanged, currentPage, portionSize = 10}) => {
+type PropsType = {
+  totalItemsCount: number
+  pageSize: number
+  onPageChanged: (pageNumber:number) => void
+  currentPage: number
+  portionSize?: number
+}
+
+const Paginator: React.FC<PropsType> = ({totalItemsCount, pageSize, onPageChanged, currentPage, portionSize = 10}) => {
 
     let pagesCount = Math.ceil(totalItemsCount / pageSize);
-    let pages = [];
+    let pages:Array<number> = [];
 
     for (let i = 1; i <= pagesCount; i++) {
       pages.push(i);
